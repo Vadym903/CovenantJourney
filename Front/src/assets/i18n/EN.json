@@ -1,0 +1,95 @@
+{
+    "NavigationBar": {
+        "Login":"Login",
+        "Registration":"Registration",
+        "LogOut":"Log out",
+        "CreateNewLot":"Create new lot",
+        "Notifications": "Notifications"
+    },
+    "RegistrationPage": {
+        "FirstName":"First name",
+        "LastName":"Last name",
+        "Login":"Login",
+        "Password":"Password",
+        "Email":"Email",
+        "Authorization": "Authorization",
+        "Authorize":"Authorize",
+        "Registrate":"Registrate",
+        "From": "From",
+        "To":"to",
+        "Characters":"characters",
+        "MustBeEmail":"Field nust contain email"
+    },
+    "CreateLot": {
+        "Title":"Title",
+        "Description":"Description",
+        "Category":"Category",
+        "StartPrice":"Start price",
+        "EndDate":"End date",
+        "ChoosePhoto": "Choose photo",
+        "WEAPON":"Weapon",
+        "CLOTHES": "Clothes",
+        "ELECTRONIC": "Electronic",
+        "PRECIOUS_STONES": "Precious stones",
+        "FIGURINES":"Figurines",
+        "FURNITURE":"Furniture",
+        "MONEY":"Valuable notes",
+        "PAINTINGS":"Paintings",
+        "BOOKS":"Books",
+        "Create":"Create",
+        "null":"All"
+    }, 
+    "Clock": {
+        "TimeLeft": "Time left",
+        "Days": "D",
+        "Hours": "h",
+        "Minutes": "m",
+        "Seconds": "s"
+    },
+    "RightSection": {
+        "BiggestRate":"The highest bid",
+        "MakeRate":"make bid",
+        "StartPrice":"Start price"
+    },
+    "LotInfo": {
+        "UserName":"User name",
+        "UserEmail":"User email",
+        "MakeYourRate": "Make your bid",
+        "Descr":"Minimum bid: ",
+        "Deal":"Place a bet",
+        "FinistAuction":"Finish bidding"
+    },
+    "AllLotsPage": {
+        "Category":"Filtrate by category",
+        "SortBy": {
+            "startDate":"Date",
+            "title":"Title",
+            "price":"Price",
+            "lotCategory":"Category"
+        }
+    },
+    "UserPage": {
+        "About":"About",
+        "ReadMore":"Read more",
+        "Login": "Login",
+        "CountOfLots": "Count of lots",
+        "CountOfRates": "Count of rates",
+        "Email": "Email",
+        "Lots":"Lots",
+        "EndDate":"End date",
+        "Edit":"Edit",
+        "Save":"Save",
+        "Cancel":"Cancel",
+        "firstName":"First name",
+        "lastName":"Last name",
+        "email":"Email",
+        "description": "Profile description",
+        "finalPrice": "The auction was completed with the price",
+        "WithoutLot": "Have no one Lot"
+    },
+    "Notifications": {
+        "YourMessages":"Your messages"
+    },
+    "InvalidLogin":"The login you selected is already taken, please choose another one",
+    "InvalidPasswordOrLogin": "Authorization error, check the entered data"
+}

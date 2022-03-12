@@ -1,0 +1,65 @@
+.main-body {
+  display: grid;
+  position: fixed;
+  z-index: 1000;
+  height: 60px;
+  box-shadow: 0px 3px 6px #00000029;
+  background-color: rgba(203, 219, 213, 0.5);
+  backdrop-filter: blur(30px);
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+
+  .logo {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: center;
+    width: fit-content;
+    font-size: 23px;
+    color: white;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: 30px;
+    cursor: pointer;
+  }
+
+  .right-section {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+    width: fit-content;
+    display: flex;
+    justify-content: flex-end;
+
+    a,
+    button {
+      margin-left: 15px;
+    }
+
+    .user-profile {
+      img {
+        width: 35px;
+        height: 30px;
+        border-radius: 50px;
+        object-fit: cover;
+      }
+    }
+
+    .mocked-translate-select {
+      height: 30px;
+      width: 30px;
+      background-color: white;
+      font-weight: 700;
+      font-size: 16px;
+      margin-left: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .lang-button {
+      margin-left: 15px;
+    }
+  }
+}

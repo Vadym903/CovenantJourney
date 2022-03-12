@@ -1,0 +1,9 @@
+@import 'assets/css/_theme.scss';
+
+* {
+    padding: unset;
+    margin: unset;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+a { text-decoration: none; color: #2F6B94; }
