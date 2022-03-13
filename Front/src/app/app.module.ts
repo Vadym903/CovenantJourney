@@ -22,6 +22,8 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { UserEditProfilePopupComponent } from './user-page/user-edit-profile-popup/user-edit-profile-popup.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { InvalidLoginPopupComponent } from './invalid-login-popup/invalid-login-popup.component';
+import { MainMapComponent } from './components/main-map/main-map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { InvalidLoginPopupComponent } from './invalid-login-popup/invalid-login-
     PhotoUploadComponent,
     UserPageComponent,
     UserEditProfilePopupComponent,
-    InvalidLoginPopupComponent
+    InvalidLoginPopupComponent,
+    MainMapComponent
   ],
   imports: [
     HttpClientModule,
@@ -48,7 +51,8 @@ import { InvalidLoginPopupComponent } from './invalid-login-popup/invalid-login-
     MatSelectModule,
     MatDatepickerModule,
     FormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    LeafletModule
   ],
   providers: [
     CookieService,
