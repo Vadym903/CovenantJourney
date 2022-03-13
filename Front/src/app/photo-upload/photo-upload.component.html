@@ -1,0 +1,14 @@
+<div class="main-container">
+    <img src="{{imgForShow}}">
+
+    <div class="buttons">
+        <button mat-raised-button class="upload-new-img" type="submit" (click)="fileInput.click()">
+            <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-raised-button class="upload-new-img" type="submit" (click)="clearData()">
+            <mat-icon>delete_forever</mat-icon>
+        </button>
+    </div>
+</div>
+<input type="file" style="display:none" #fileInput (change)="uploadFile($event)">

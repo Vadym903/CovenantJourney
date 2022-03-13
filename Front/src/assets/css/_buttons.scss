@@ -1,0 +1,139 @@
+@mixin configure-mat-raised-button($className) {
+  &.#{$className} {
+    &.mat-raised-button {
+      @content;
+    }
+  }
+}
+
+button {
+  &.mat-raised-button:not([class*='mat-elevation-z']) {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: unset;
+  }
+
+  .mat-raised-button {
+    max-width: 343px;
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+    margin: 25px 16px 30px 16px;
+    background-color: yellowgreen;
+  }
+
+  &.login-button {
+    &.mat-button {
+      width: 150px;
+      background: #3F51B5;
+      color: white;
+    }
+  }
+
+  &.logout {
+    &.mat-raised-button {
+      width: 50px;
+    }
+  }
+
+  &.create-new-lot {
+    &.mat-raised-button {
+      padding: 0 15px;
+    }
+  }
+
+
+  &.upload-new-img {
+    &.mat-raised-button {
+      min-width: unset;
+      border-radius: 50%;
+      width: 30px;
+      color: #95BDBB;
+    }
+  }
+
+  @include configure-mat-raised-button(save-lot) {
+    width: 217px;
+  }
+
+  @include configure-mat-raised-button(make-rate) {
+    width: 233px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  @include configure-mat-raised-button(make-rate-popup) {
+    width: 200px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  @include configure-mat-raised-button(close-lot) {
+    width: 200px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  @include configure-mat-raised-button(user-profile) {
+    width: 35px;
+    height: 30px;
+    min-width: unset;
+    min-height: unset;
+    background-color: unset;
+    border-radius: 50px;
+  }
+
+  @include configure-mat-raised-button(user-edit-button) {
+    width: 140px;
+    height: 30px;
+    min-width: unset;
+    min-height: unset;
+    background-color: unset;
+    border: 1px solid white;
+    color: white;
+    border-radius: 50px;
+    box-sizing: border-box;
+  }
+
+  @include configure-mat-raised-button(user-edit-save-button) {
+    width: 140px;
+    height: 30px;
+    min-width: unset;
+    min-height: unset;
+    background-color: #95BDBB;
+    color: white;
+  }
+
+  @include configure-mat-raised-button(user-edit-cancel-button) {
+    width: 140px;
+    height: 30px;
+    min-width: unset;
+    min-height: unset;
+    background-color: rgb(228, 65, 65);
+    color: white;
+  }
+}
+
+a {
+
+  &.mat-raised-button {
+    min-width: unset;
+    line-height: unset;
+    padding: unset;
+    display: flex;
+    height: unset;
+    align-items: center;
+
+  }
+
+  &.login {
+    &.mat-raised-button {
+      &:not([class*='mat-elevation-z']) {
+        padding: 0 5px;
+      }
+    }
+  }
+
+}
