@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
-@Table(name = "auction_user")
+@Table(name = "api_user")
 public class UserEntity implements PrimaryEntity {
 
     @Id
@@ -40,14 +40,11 @@ public class UserEntity implements PrimaryEntity {
 
     @Column(name = "password")
     @NotBlank
-    @Size(min = 6)
+    @Size(min = 3)
     private String password;
 
     @Column(name = "email")
     private String email;
-
-    @Column(name = "firebase_token")
-    private String firebaseToken;
 
     @Column(name = "role", nullable = false)
     @NotNull
@@ -58,7 +55,7 @@ public class UserEntity implements PrimaryEntity {
     private ShorterPhotoEntity photo;
 
     @Column(name = "description")
-    @Size(max = 600)
+    @Size(max = 10000)
     private String description;
 
     public Long getId() {
@@ -123,14 +120,6 @@ public class UserEntity implements PrimaryEntity {
 
     public void setPhoto(ShorterPhotoEntity photo) {
         this.photo = photo;
-    }
-
-    public String getFirebaseToken() {
-        return firebaseToken;
-    }
-
-    public void setFirebaseToken(String firebaseToken) {
-        this.firebaseToken = firebaseToken;
     }
 
     public String getDescription() {
