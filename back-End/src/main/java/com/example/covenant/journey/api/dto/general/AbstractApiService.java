@@ -4,7 +4,7 @@ import com.example.covenant.journey.api.filters.models.FilteringSpecificationsBu
 import com.example.covenant.journey.api.filters.models.FilterProperty;
 import com.example.covenant.journey.api.filters.models.SearchCriteria;
 import com.example.covenant.journey.api.filters.models.SearchCriteriaParser;
-import com.example.covenant.journey.models.AbstractEntity;
+import com.example.covenant.journey.model.AbstractEntity;
 import com.example.covenant.journey.services.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

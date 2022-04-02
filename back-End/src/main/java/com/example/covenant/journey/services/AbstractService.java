@@ -1,7 +1,7 @@
 package com.example.covenant.journey.services;
 
-import com.example.covenant.journey.models.AbstractEntity;
-import com.example.covenant.journey.models.UserSpecific;
+import com.example.covenant.journey.model.AbstractEntity;
+import com.example.covenant.journey.model.UserSpecific;
 import com.example.covenant.journey.repositories.BaseRepository;
 import com.example.covenant.journey.services.user.CurrentUserService;
 import org.springframework.beans.factory.annotation.Autowired;

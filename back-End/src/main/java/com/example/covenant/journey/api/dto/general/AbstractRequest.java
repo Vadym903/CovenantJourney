@@ -1,6 +1,6 @@
 package com.example.covenant.journey.api.dto.general;
 
-import com.example.covenant.journey.models.AbstractEntity;
+import com.example.covenant.journey.model.AbstractEntity;
 
 public abstract class AbstractRequest <Entity extends AbstractEntity> {
 

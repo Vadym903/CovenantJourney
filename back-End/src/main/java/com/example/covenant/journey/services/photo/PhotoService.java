@@ -1,9 +1,9 @@
 package com.example.covenant.journey.services.photo;
 
 
-import com.example.covenant.journey.models.photo.PhotoEntity;
-import com.example.covenant.journey.models.photo.ShorterPhotoEntity;
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.photo.PhotoEntity;
+import com.example.covenant.journey.model.photo.ShorterPhotoEntity;
+import com.example.covenant.journey.model.user.User;
 import com.example.covenant.journey.repositories.BaseRepository;
 import com.example.covenant.journey.repositories.photo.PhotoRepository;
 import com.example.covenant.journey.repositories.photo.ShorterPhotoRepository;

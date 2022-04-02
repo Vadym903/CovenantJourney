@@ -1,6 +1,6 @@
 package com.example.covenant.journey.api.dto.user;
 
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.user.User;
 import com.example.covenant.journey.services.photo.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,8 +28,7 @@ public class UserConverter {
         UserResponse response = new UserResponse();
         response.setId(user.getId());
         response.setEmail(user.getEmail());
-        response.setFirstName(user.getFullName());
-        response.setSecondName(user.getLastName());
+        response.setFullName(user.getFullName());
         response.setLogin(user.getLogin());
         response.setRole(user.getRole());
         response.setDescription(user.getDescription());

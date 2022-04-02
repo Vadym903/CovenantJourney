@@ -1,4 +1,4 @@
-package com.example.covenant.journey.models.apartment;
+package com.example.covenant.journey.model.apartment;
 
 public enum ApartmentType {
 	HOTEL,

@@ -1,6 +1,6 @@
 package com.example.covenant.journey.security.userdetails;
 
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

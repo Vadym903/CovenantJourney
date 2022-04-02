@@ -1,7 +1,7 @@
 package com.example.covenant.journey.services.user;
 
-import com.example.covenant.journey.models.user.User;
-import com.example.covenant.journey.models.user.UserRole;
+import com.example.covenant.journey.model.user.User;
+import com.example.covenant.journey.model.user.UserRole;
 import com.example.covenant.journey.repositories.BaseRepository;
 import com.example.covenant.journey.repositories.user.UserRepository;
 import com.example.covenant.journey.services.AbstractService;

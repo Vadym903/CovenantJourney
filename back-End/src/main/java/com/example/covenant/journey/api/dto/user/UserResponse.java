@@ -1,17 +1,14 @@
 package com.example.covenant.journey.api.dto.user;
 
 import com.example.covenant.journey.api.dto.general.AbstractResponse;
-import com.example.covenant.journey.models.user.UserRole;
+import com.example.covenant.journey.model.user.User;
+import com.example.covenant.journey.model.user.UserRole;
 
 public class UserResponse extends AbstractResponse {
 
-    private String firstName;
-
-    private String secondName;
+    private String fullName;
 
     private String login;
-
-    private String password;
 
     private String email;
 
@@ -21,20 +18,25 @@ public class UserResponse extends AbstractResponse {
 
     private String description;
 
-    public String getFirstName() {
-        return firstName;
+    public UserResponse() {
+
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public UserResponse(User user) {
+        super(user.getId());
+        this.fullName = user.getFullName();
+        this.login = user.getLogin();
+        this.email = user.getEmail();
+        this.role = user.getRole();
+        this.description = user.getDescription();
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getLogin() {
@@ -43,14 +45,6 @@ public class UserResponse extends AbstractResponse {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {

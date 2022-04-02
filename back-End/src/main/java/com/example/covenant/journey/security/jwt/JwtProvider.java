@@ -19,7 +19,7 @@ import java.util.Date;
 public class JwtProvider {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtProvider.class);
-    private static final String JWT_SECRET = "67C18C53B7C18C53B89D5367C18C53B";
+    private static final String JWT_SECRET = "67C18C53B7C18C53B85g9D5367C18C53B";
 
     public String generateToken(String login) {
         Date date = Date.from(LocalDate.now().plusDays(3).atStartOfDay(ZoneId.systemDefault()).toInstant());

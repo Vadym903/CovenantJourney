@@ -1,4 +1,4 @@
-package com.example.covenant.journey.models;
+package com.example.covenant.journey.model;
 
 public interface AbstractEntity {
 

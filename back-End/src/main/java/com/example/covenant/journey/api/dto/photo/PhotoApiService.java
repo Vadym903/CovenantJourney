@@ -1,6 +1,6 @@
 package com.example.covenant.journey.api.dto.photo;
 
-import com.example.covenant.journey.models.photo.PhotoEntity;
+import com.example.covenant.journey.model.photo.PhotoEntity;
 import com.example.covenant.journey.services.photo.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;

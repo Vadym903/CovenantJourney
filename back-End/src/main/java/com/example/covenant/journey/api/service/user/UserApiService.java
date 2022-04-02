@@ -5,7 +5,7 @@ import com.example.covenant.journey.api.dto.general.AbstractApiService;
 import com.example.covenant.journey.api.dto.user.UserConverter;
 import com.example.covenant.journey.api.dto.user.UserRequest;
 import com.example.covenant.journey.api.dto.user.UserResponse;
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.user.User;
 import com.example.covenant.journey.services.photo.PhotoService;
 import com.example.covenant.journey.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

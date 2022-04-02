@@ -1,6 +1,6 @@
 package com.example.covenant.journey.repositories;
 
-import com.example.covenant.journey.models.AbstractEntity;
+import com.example.covenant.journey.model.AbstractEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.NoRepositoryBean;

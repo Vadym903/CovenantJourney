@@ -1,6 +1,6 @@
 package com.example.covenant.journey.api.dto.photo;
 
-import com.example.covenant.journey.models.photo.ShorterPhotoEntity;
+import com.example.covenant.journey.model.photo.ShorterPhotoEntity;
 
 public class Photo {
 

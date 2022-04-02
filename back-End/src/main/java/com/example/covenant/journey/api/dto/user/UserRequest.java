@@ -1,7 +1,8 @@
 package com.example.covenant.journey.api.dto.user;
 
 import com.example.covenant.journey.api.dto.general.AbstractRequest;
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.user.User;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -10,23 +11,27 @@ import javax.validation.constraints.Size;
 public class UserRequest extends AbstractRequest<User> {
 
     @NotBlank
-    @Size(min = 4)
+    @ApiModelProperty(notes = "", example = "Jonathan Josuke")
     private String fullName;
 
-    @Size(min = 4)
+    @Size(min = 3)
     @NotBlank
+    @ApiModelProperty(notes = "", example = "jonathan_josuke")
     private String login;
 
     @NotBlank
-    @Size(min = 6)
+    @Size(min = 3)
+    @ApiModelProperty(notes = "", example = "pass")
     private String password;
 
     @Email
     @NotBlank
+    @ApiModelProperty(notes = "", example = "joger@gmail.com")
     private String email;
 
     private Long photoId;
 
+    @ApiModelProperty(notes = "", example = "I'm Jonathan Josuke")
     private String description;
 
     @Override

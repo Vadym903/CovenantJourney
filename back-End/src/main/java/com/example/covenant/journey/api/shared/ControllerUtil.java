@@ -1,6 +1,6 @@
 package com.example.covenant.journey.api.shared;
 
-import com.example.covenant.journey.models.AbstractEntity;
+import com.example.covenant.journey.model.AbstractEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 

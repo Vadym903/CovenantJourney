@@ -1,6 +1,6 @@
-package com.example.covenant.journey.models.geodata;
+package com.example.covenant.journey.model.geodata;
 
-import com.example.covenant.journey.models.AbstractEntity;
+import com.example.covenant.journey.model.AbstractEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

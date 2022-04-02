@@ -2,7 +2,7 @@ package com.example.covenant.journey.api.dto.general;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class AbstractResponse {
+public abstract class AbstractResponse {
 
     @ApiModelProperty("Unique identifier")
     private Long id;
@@ -12,6 +12,13 @@ public class AbstractResponse {
     }
 
     public void setId(Long id) {
+        this.id = id;
+    }
+
+    public AbstractResponse() {
+    }
+
+    public AbstractResponse(Long id) {
         this.id = id;
     }
 }

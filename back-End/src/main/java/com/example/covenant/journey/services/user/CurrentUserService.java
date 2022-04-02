@@ -1,7 +1,7 @@
 package com.example.covenant.journey.services.user;
 
-import com.example.covenant.journey.models.user.User;
-import com.example.covenant.journey.models.user.UserRole;
+import com.example.covenant.journey.model.user.User;
+import com.example.covenant.journey.model.user.UserRole;
 import com.example.covenant.journey.security.userdetails.CustomUserDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

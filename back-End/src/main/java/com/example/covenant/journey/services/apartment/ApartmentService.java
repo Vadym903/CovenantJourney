@@ -1,6 +1,6 @@
 package com.example.covenant.journey.services.apartment;
 
-import com.example.covenant.journey.models.apartment.Apartment;
+import com.example.covenant.journey.model.apartment.Apartment;
 import com.example.covenant.journey.repositories.BaseRepository;
 import com.example.covenant.journey.repositories.apartment.ApartmentRepository;
 import com.example.covenant.journey.services.AbstractService;

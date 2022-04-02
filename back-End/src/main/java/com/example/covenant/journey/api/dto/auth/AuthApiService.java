@@ -3,7 +3,7 @@ package com.example.covenant.journey.api.dto.auth;
 import com.example.covenant.journey.api.dto.user.UserConverter;
 import com.example.covenant.journey.api.dto.user.UserRequest;
 import com.example.covenant.journey.api.dto.user.UserResponse;
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.user.User;
 import com.example.covenant.journey.security.jwt.JwtProvider;
 import com.example.covenant.journey.services.user.CurrentUserService;
 import com.example.covenant.journey.services.user.UserService;
@@ -27,12 +27,12 @@ public class AuthApiService {
     @Autowired
     private JwtProvider jwtProvider;
 
-    public void registerUser(UserRequest user) {
-        if (userService.findUserByLogin(user.getLogin()) == null) {
-            userService.create(userConverter.convertRequestToEntity(user));
-            return;
+    public UserResponse registerUser(UserRequest user) {
+        if (userService.findUserByLogin(user.getLogin()) != null) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
-        throw new ResponseStatusException(HttpStatus.CONFLICT); // TODO Handle on front
+        User savedUser = userService.create(userConverter.convertRequestToEntity(user));
+        return new UserResponse(savedUser);
     }
 
     public AuthResponse login(AuthRequest request) {

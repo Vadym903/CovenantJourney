@@ -1,7 +1,7 @@
-package com.example.covenant.journey.models.user;
+package com.example.covenant.journey.model.user;
 
-import com.example.covenant.journey.models.AbstractEntity;
-import com.example.covenant.journey.models.photo.ShorterPhotoEntity;
+import com.example.covenant.journey.model.AbstractEntity;
+import com.example.covenant.journey.model.photo.ShorterPhotoEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +31,7 @@ public class User implements AbstractEntity {
     private String fullName;
 
     @Column(name = "login")
-    @Size(min = 4)
+    @Size(min = 3)
     private String login;
 
     @Column(name = "password")

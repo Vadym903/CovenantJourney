@@ -1,7 +1,7 @@
-package com.example.covenant.journey.models.photo;
+package com.example.covenant.journey.model.photo;
 
-import com.example.covenant.journey.models.AbstractEntity;
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.AbstractEntity;
+import com.example.covenant.journey.model.user.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,25 +9,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
 @Table(name = "auction_photo")
-public class PhotoEntity implements AbstractEntity {
+public class ShorterPhotoEntity implements AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Lob
-    @Column(name = "content", columnDefinition = "bytea", nullable = false)
-    private byte[] bytes;
 
     @NotBlank
     @Column(name = "type")
@@ -44,14 +38,6 @@ public class PhotoEntity implements AbstractEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public byte[] getBytes() {
-        return bytes;
-    }
-
-    public void setBytes(byte[] bytes) {
-        this.bytes = bytes;
     }
 
     public String getType() {
@@ -74,17 +60,14 @@ public class PhotoEntity implements AbstractEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PhotoEntity that = (PhotoEntity) o;
+        ShorterPhotoEntity that = (ShorterPhotoEntity) o;
         return Objects.equals(id, that.id) &&
-                Arrays.equals(bytes, that.bytes) &&
                 Objects.equals(type, that.type) &&
                 Objects.equals(user, that.user);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(id, type, user);
-        result = 31 * result + Arrays.hashCode(bytes);
-        return result;
+        return Objects.hash(id, type, user);
     }
 }

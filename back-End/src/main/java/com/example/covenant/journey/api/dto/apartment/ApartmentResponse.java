@@ -1,8 +1,8 @@
 package com.example.covenant.journey.api.dto.apartment;
 
 import com.example.covenant.journey.api.dto.general.AbstractResponse;
-import com.example.covenant.journey.models.apartment.ApartmentType;
-import com.example.covenant.journey.models.geodata.GeoData;
+import com.example.covenant.journey.model.apartment.ApartmentType;
+import com.example.covenant.journey.model.geodata.GeoData;
 import io.swagger.annotations.ApiModelProperty;
 
 public class ApartmentResponse extends AbstractResponse {

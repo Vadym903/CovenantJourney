@@ -4,7 +4,7 @@ import com.example.covenant.journey.api.filters.models.FilteringSpecificationsBu
 import com.example.covenant.journey.api.filters.models.SearchCriteria;
 import com.example.covenant.journey.api.filters.models.SearchCriteriaParser;
 import com.example.covenant.journey.api.shared.ControllerUtil;
-import com.example.covenant.journey.models.AbstractEntity;
+import com.example.covenant.journey.model.AbstractEntity;
 import com.example.covenant.journey.services.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.validation.Valid;
@@ -62,6 +63,7 @@ public abstract class AbstractCRUDController<
 
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
 	public Response create(@Valid @RequestBody Request request) {
 		Entity entity = request.createEntity();
 		validate(entity, request);
@@ -71,6 +73,7 @@ public abstract class AbstractCRUDController<
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
 	public ResponsePage<Response> findItems(
 			@RequestParam(required = false) Optional<String> search,
 			@RequestParam(required = false) Optional<Integer> pageNo,
@@ -87,6 +90,7 @@ public abstract class AbstractCRUDController<
 	}
 
 	@GetMapping(value = "/{id}")
+	@ResponseBody
 	public Response findById(@PathVariable Long id, @RequestParam Optional<String> expand) {
 		Entity entity = ControllerUtil.getOrNotFound(service.getOne(id));
 		return convertEntityToResponse(entity, ControllerUtil.parseExpandFields(expand));
@@ -100,6 +104,7 @@ public abstract class AbstractCRUDController<
 	}
 
 	@PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
 	public Response update(@PathVariable Long id, @RequestBody Request request) {
 		Entity entity = ControllerUtil.getOrNotFound(service.getOne(id));
 		request.updateEntity(entity);

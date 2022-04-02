@@ -1,4 +1,4 @@
-package com.example.covenant.journey.models.user;
+package com.example.covenant.journey.model.user;
 
 public enum UserRole {
     ROLE_USER,

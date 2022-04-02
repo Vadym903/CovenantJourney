@@ -1,9 +1,9 @@
-package com.example.covenant.journey.models.apartment;
+package com.example.covenant.journey.model.apartment;
 
-import com.example.covenant.journey.models.AbstractEntity;
-import com.example.covenant.journey.models.UserSpecific;
-import com.example.covenant.journey.models.geodata.GeoData;
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.AbstractEntity;
+import com.example.covenant.journey.model.UserSpecific;
+import com.example.covenant.journey.model.geodata.GeoData;
+import com.example.covenant.journey.model.user.User;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

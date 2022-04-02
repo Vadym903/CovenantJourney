@@ -1,7 +1,7 @@
 package com.example.covenant.journey.testData;
 
-import com.example.covenant.journey.models.photo.PhotoEntity;
-import com.example.covenant.journey.models.user.User;
+import com.example.covenant.journey.model.photo.PhotoEntity;
+import com.example.covenant.journey.model.user.User;
 import com.example.covenant.journey.services.photo.PhotoService;
 import com.example.covenant.journey.services.user.UserService;
 import com.google.common.io.ByteStreams;
@@ -33,7 +33,6 @@ public class TestDataGenerator {
         User user = new User();
         user.setEmail("defaultemail@gmail.com");
         user.setFullName(firstName);
-        user.setLastName(lastName);
         user.setLogin(login);
         user.setPassword("dfgsfsdfg");
         user.setDescription(description);
