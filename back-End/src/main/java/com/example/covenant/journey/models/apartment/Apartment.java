@@ -1,9 +1,11 @@
 package com.example.covenant.journey.models.apartment;
 
-import com.example.covenant.journey.models.UserSpecified;
+import com.example.covenant.journey.models.AbstractEntity;
+import com.example.covenant.journey.models.UserSpecific;
 import com.example.covenant.journey.models.geodata.GeoData;
-import com.example.covenant.journey.models.user.UserEntity;
+import com.example.covenant.journey.models.user.User;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -17,7 +19,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "apartment")
-public class Apartment implements UserSpecified {
+public class Apartment implements UserSpecific, AbstractEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,11 +37,11 @@ public class Apartment implements UserSpecified {
 
 	// TODO add images
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private GeoData geoData;
 
 	@OneToOne
-	private UserEntity userEntity;
+	private User user;
 
 	public Long getId() {
 		return id;
@@ -82,12 +84,13 @@ public class Apartment implements UserSpecified {
 	}
 
 	@Override
-	public UserEntity getUser() {
-		return userEntity;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser(UserEntity userEntity) {
-		this.userEntity = userEntity;
+	@Override
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
@@ -100,11 +103,11 @@ public class Apartment implements UserSpecified {
 				&& apartmentType == apartment.apartmentType
 				&& Objects.equals(description, apartment.description)
 				&& Objects.equals(geoData, apartment.geoData)
-				&& Objects.equals(userEntity, apartment.userEntity);
+				&& Objects.equals(user, apartment.user);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, apartmentType, description, geoData, userEntity);
+		return Objects.hash(id, name, apartmentType, description, geoData, user);
 	}
 }

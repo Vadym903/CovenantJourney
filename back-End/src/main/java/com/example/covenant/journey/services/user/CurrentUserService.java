@@ -1,6 +1,6 @@
 package com.example.covenant.journey.services.user;
 
-import com.example.covenant.journey.models.user.UserEntity;
+import com.example.covenant.journey.models.user.User;
 import com.example.covenant.journey.models.user.UserRole;
 import com.example.covenant.journey.security.userdetails.CustomUserDetails;
 import org.springframework.security.core.Authentication;
@@ -14,11 +14,11 @@ public class CurrentUserService {
         return isAdministrator(getCurrentUser());
     }
 
-    public boolean isAdministrator(UserEntity userEntity) {
-        return userEntity.getRole().equals(UserRole.ROLE_ADMIN);
+    public boolean isAdministrator(User user) {
+        return user.getRole().equals(UserRole.ROLE_ADMIN);
     }
 
-    public UserEntity getCurrentUser() {
+    public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
             Object user = authentication.getPrincipal();

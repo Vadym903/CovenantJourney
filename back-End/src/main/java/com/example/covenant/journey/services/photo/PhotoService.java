@@ -3,7 +3,7 @@ package com.example.covenant.journey.services.photo;
 
 import com.example.covenant.journey.models.photo.PhotoEntity;
 import com.example.covenant.journey.models.photo.ShorterPhotoEntity;
-import com.example.covenant.journey.models.user.UserEntity;
+import com.example.covenant.journey.models.user.User;
 import com.example.covenant.journey.repositories.BaseRepository;
 import com.example.covenant.journey.repositories.photo.PhotoRepository;
 import com.example.covenant.journey.repositories.photo.ShorterPhotoRepository;
@@ -35,8 +35,8 @@ public class PhotoService extends AbstractService <PhotoEntity> {
         return super.create(entity);
     }
 
-    public PhotoEntity create(PhotoEntity entity, UserEntity userEntity) {
-        entity.setUserEntity(userEntity);
+    public PhotoEntity create(PhotoEntity entity, User user) {
+        entity.setUserEntity(user);
         return super.create(entity);
     }
 
@@ -45,7 +45,7 @@ public class PhotoService extends AbstractService <PhotoEntity> {
     }
 
     @Override
-    public void update(PhotoEntity entity) {
+    public PhotoEntity update(PhotoEntity entity) {
         throw new UnsupportedOperationException("temporary unsupported");
     }
 }

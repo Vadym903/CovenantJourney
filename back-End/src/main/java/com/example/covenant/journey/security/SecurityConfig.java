@@ -1,8 +1,8 @@
 package com.example.covenant.journey.security;
 
-import com.example.covenant.journey.api.models.auth.AuthController;
-import com.example.covenant.journey.api.models.photo.PhotoController;
-import com.example.covenant.journey.api.models.user.UserController;
+import com.example.covenant.journey.api.dto.auth.AuthController;
+import com.example.covenant.journey.api.dto.photo.PhotoController;
+import com.example.covenant.journey.api.dto.user.UserController;
 import com.example.covenant.journey.security.jwt.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

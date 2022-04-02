@@ -1,5 +1,7 @@
 package com.example.covenant.journey.models.geodata;
 
+import com.example.covenant.journey.models.AbstractEntity;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "geo_data")
-public class GeoData {
+public class GeoData implements AbstractEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +30,7 @@ public class GeoData {
 	@Column(name = "address_name")
 	private String addressName;
 
+	@Override
 	public Long getId() {
 		return id;
 	}

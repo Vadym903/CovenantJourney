@@ -1,7 +1,7 @@
 package com.example.covenant.journey.testData;
 
 import com.example.covenant.journey.models.photo.PhotoEntity;
-import com.example.covenant.journey.models.user.UserEntity;
+import com.example.covenant.journey.models.user.User;
 import com.example.covenant.journey.services.photo.PhotoService;
 import com.example.covenant.journey.services.user.UserService;
 import com.google.common.io.ByteStreams;
@@ -24,23 +24,23 @@ public class TestDataGenerator {
 
     @PostConstruct
     public void generateData() {
-        UserEntity userEntity = userService.create(getValidUser("IgorAustraliaZed", "Hello I'm old auctioneer from Australia, i'm looking for old furniture and old weapon especially muskets and melee weapons such as halberds and swords", "Igor", "Dmytrov"));
-        userEntity.setPhoto(photoService.getShorterPhotoEntityById(loadImage("user2.jfif", userEntity).getId()));
-        userService.update(userEntity);
+        User user = userService.create(getValidUser("IgorAustraliaZed", "Hello I'm old auctioneer from Australia, i'm looking for old furniture and old weapon especially muskets and melee weapons such as halberds and swords", "Igor", "Dmytrov"));
+        user.setPhoto(photoService.getShorterPhotoEntityById(loadImage("user2.jfif", user).getId()));
+        userService.update(user);
     }
 
-    private UserEntity getValidUser(String login, String description, String firstName, String lastName) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setEmail("defaultemail@gmail.com");
-        userEntity.setFirstName(firstName);
-        userEntity.setLastName(lastName);
-        userEntity.setLogin(login);
-        userEntity.setPassword("dfgsfsdfg");
-        userEntity.setDescription(description);
-        return userEntity;
+    private User getValidUser(String login, String description, String firstName, String lastName) {
+        User user = new User();
+        user.setEmail("defaultemail@gmail.com");
+        user.setFullName(firstName);
+        user.setLastName(lastName);
+        user.setLogin(login);
+        user.setPassword("dfgsfsdfg");
+        user.setDescription(description);
+        return user;
     }
 
-    private PhotoEntity loadImage(String imageName, UserEntity userEntity) {
+    private PhotoEntity loadImage(String imageName, User user) {
         if (imageName != null) {
             try {
                 PhotoEntity photoEntity = new PhotoEntity();
@@ -49,7 +49,7 @@ public class TestDataGenerator {
                 byte[] targetArray = ByteStreams.toByteArray(resource.getInputStream());
                 photoEntity.setBytes(targetArray);
                 photoEntity.setType("image/jpg");
-                photoEntity = photoService.create(photoEntity, userEntity);
+                photoEntity = photoService.create(photoEntity, user);
                 return photoEntity;
             } catch (IOException e) {
                 e.printStackTrace();

@@ -1,7 +1,7 @@
 package com.example.covenant.journey.models.photo;
 
-import com.example.covenant.journey.models.PrimaryEntity;
-import com.example.covenant.journey.models.user.UserEntity;
+import com.example.covenant.journey.models.AbstractEntity;
+import com.example.covenant.journey.models.user.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "auction_photo")
-public class ShorterPhotoEntity implements PrimaryEntity {
+public class ShorterPhotoEntity implements AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class ShorterPhotoEntity implements PrimaryEntity {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private UserEntity userEntity;
+    private User user;
 
     public Long getId() {
         return id;
@@ -48,12 +48,12 @@ public class ShorterPhotoEntity implements PrimaryEntity {
         this.type = type;
     }
 
-    public UserEntity getUserEntity() {
-        return userEntity;
+    public User getUserEntity() {
+        return user;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
+    public void setUserEntity(User user) {
+        this.user = user;
     }
 
     @Override
@@ -63,11 +63,11 @@ public class ShorterPhotoEntity implements PrimaryEntity {
         ShorterPhotoEntity that = (ShorterPhotoEntity) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(type, that.type) &&
-                Objects.equals(userEntity, that.userEntity);
+                Objects.equals(user, that.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, type, userEntity);
+        return Objects.hash(id, type, user);
     }
 }

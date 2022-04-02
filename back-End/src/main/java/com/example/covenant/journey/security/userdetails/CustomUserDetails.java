@@ -1,6 +1,6 @@
 package com.example.covenant.journey.security.userdetails;
 
-import com.example.covenant.journey.models.user.UserEntity;
+import com.example.covenant.journey.models.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,24 +13,24 @@ public class CustomUserDetails implements UserDetails {
     private String login;
     private String password;
     private Collection<? extends GrantedAuthority> grantedAuthorities;
-    private final transient UserEntity userEntity;
+    private final transient User user;
 
-    public CustomUserDetails(String login, String password, Collection<? extends GrantedAuthority> grantedAuthorities, UserEntity userEntity) {
+    public CustomUserDetails(String login, String password, Collection<? extends GrantedAuthority> grantedAuthorities, User user) {
         this.login = login;
         this.password = password;
         this.grantedAuthorities = grantedAuthorities;
-        this.userEntity = userEntity;
+        this.user = user;
     }
 
-    public CustomUserDetails(UserEntity userEntity) {
-        this.userEntity = userEntity;
+    public CustomUserDetails(User user) {
+        this.user = user;
     }
 
-    public static CustomUserDetails fromUserEntityToCustomUserDetails(UserEntity userEntity) {
-        CustomUserDetails c = new CustomUserDetails(userEntity);
-        c.login = userEntity.getLogin();
-        c.password = userEntity.getPassword();
-        c.grantedAuthorities = Collections.singletonList(new SimpleGrantedAuthority(userEntity.getRole().name()));
+    public static CustomUserDetails fromUserEntityToCustomUserDetails(User user) {
+        CustomUserDetails c = new CustomUserDetails(user);
+        c.login = user.getLogin();
+        c.password = user.getPassword();
+        c.grantedAuthorities = Collections.singletonList(new SimpleGrantedAuthority(user.getRole().name()));
         return c;
     }
 
@@ -69,7 +69,7 @@ public class CustomUserDetails implements UserDetails {
         return true;
     }
 
-    public UserEntity getUserEntity() {
-        return userEntity;
+    public User getUserEntity() {
+        return user;
     }
 }
