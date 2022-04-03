@@ -1,5 +1,6 @@
 package com.example.covenant.journey.api.dto.general;
 
+import com.example.covenant.journey.model.AbstractEntity;
 import io.swagger.annotations.ApiModelProperty;
 
 public abstract class AbstractResponse {
@@ -18,7 +19,7 @@ public abstract class AbstractResponse {
     public AbstractResponse() {
     }
 
-    public AbstractResponse(Long id) {
-        this.id = id;
+    public AbstractResponse(AbstractEntity entity) {
+        this.id = entity.getId();
     }
 }

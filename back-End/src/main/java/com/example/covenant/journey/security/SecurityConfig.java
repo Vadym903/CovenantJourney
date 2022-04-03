@@ -1,8 +1,8 @@
 package com.example.covenant.journey.security;
 
+import com.example.covenant.journey.api.controller.user.UserController;
 import com.example.covenant.journey.api.dto.auth.AuthController;
 import com.example.covenant.journey.api.dto.photo.PhotoController;
-import com.example.covenant.journey.api.dto.user.UserController;
 import com.example.covenant.journey.security.jwt.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +25,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Autowired
     private JwtFilter jwtFilter;
 
+    private static final String[] PUBLIC_API = {
+            AuthController.URL + "/registration",
+            UserController.API_URL + "/{id}",
+            PhotoController.URL + "/{id}",
+            AuthController.URL + "/login"
+    };
+
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService()
+//    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -34,13 +46,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/admin", "/admin/*").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET,
-                        AuthController.URL + "/registration",
-                        UserController.URL + "/{id}",
-                        PhotoController.URL + "/{id}",
-                        AuthController.URL + "/login").permitAll()
-                .antMatchers("/").authenticated()
+                .antMatchers(HttpMethod.GET, PUBLIC_API).permitAll()
+                .antMatchers("/**").authenticated()
                 .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }

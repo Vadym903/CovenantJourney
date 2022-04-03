@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public abstract class AbstractCRUDController<
+public abstract class AbstractController<
 		Response extends AbstractResponse,
 		Entity extends AbstractEntity,
 		Request extends AbstractRequest<Entity>,

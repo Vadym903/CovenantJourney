@@ -23,7 +23,7 @@ public class UserResponse extends AbstractResponse {
     }
 
     public UserResponse(User user) {
-        super(user.getId());
+        super(user);
         this.fullName = user.getFullName();
         this.login = user.getLogin();
         this.email = user.getEmail();
