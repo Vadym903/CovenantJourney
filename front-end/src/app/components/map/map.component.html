@@ -1,0 +1,19 @@
+<section>
+	<div class="map"
+		 id="map"
+		 #map
+		 leaflet
+		 [leafletOptions]="options"
+		 [leafletLayers]="layers"
+		 (leafletClick)="handleClick($event)"
+	>
+		<div *ngIf="layer" [leafletLayer]="layer">
+		</div>
+	</div>
+
+</section>
+
+<div #icon class="custom-icon">
+	<img width="150px" height="150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwd2FqaS4ZTdgxke-q1CoAzWIp8W4TfSLBBg&usqp=CAU">
+	<button (click)="click(); $event.stopPropagation()" width="150px" height="30px"> click me</button>
+</div>
