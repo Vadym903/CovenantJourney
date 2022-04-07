@@ -10,6 +10,9 @@ import { MarkerCardComponent } from './components/map/marker-card/marker-card.co
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from "./modules/matherial.module";
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,17 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MapComponent,
     MarkerCardComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    LeafletModule,
-    RouterModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        LeafletModule,
+        RouterModule,
+        BrowserAnimationsModule,
+        MaterialModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,16 @@
+@mixin configure-mat-raised-button($className) {
+	&.#{$className} {
+		&.mat-raised-button {
+			@content;
+		}
+	}
+}
+
+button {
+	@include configure-mat-raised-button(default-button) {
+		background: transparent;
+		border: 1px solid #DDDDDD;
+		box-shadow: unset;
+		border-radius: 15px;
+	}
+}
