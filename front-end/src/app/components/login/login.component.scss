@@ -1,0 +1,70 @@
+section {
+	.header-container {
+		height: 63px;
+		display: grid;
+		align-items: center;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas: "button title .";
+
+		button {
+			grid-area: button;
+			width: 25px;
+			height: 25px;
+			font-weight: 400;
+			display: flex;
+			font-size: 20px;
+			background: transparent;
+			border-radius: 20px;
+			align-items: center;
+			justify-content: center;
+			border: unset;
+			cursor: pointer;
+
+			&:hover {
+				background: rgba(218, 218, 218, 0.4);
+			}
+		}
+
+		.title {
+			grid-area: title;
+			text-align: center;
+			font-size: 16px;
+			font-weight: 500;
+		}
+	}
+	hr {
+		width: 568px;
+		margin: unset;
+		margin-left: -24px;
+		border: unset;
+		border-bottom: 1px solid #a9a7a7;
+		height: 1px;
+	}
+
+	.welcome-message {
+		margin-top: 36px;
+		font-size: 25px;
+		font-weight: 500;
+	}
+	form {
+		margin-top: 29px;
+		input {
+			width: 100%;
+			height: 56px;
+			font: 400 18px Arial;
+			border-radius: 12px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #a9a9a9;
+
+
+			& + input {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	.log-in-button {
+		margin-top: 40px;
+	}
+}

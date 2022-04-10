@@ -6,9 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class GeoDataResponse extends AbstractResponse {
 
-	@ApiModelProperty("unique identifier of geo data")
-	private Long id;
-
 	@ApiModelProperty("latitude")
 	private Double latitude;
 
@@ -25,21 +22,11 @@ public class GeoDataResponse extends AbstractResponse {
 	}
 
 	public GeoDataResponse(GeoData geoData) {
-		this.id = geoData.getId();
+		super(geoData);
 		this.latitude = geoData.getLatitude();
 		this.longitude = geoData.getLongitude();
 		this.altitude = geoData.getAltitude();
 		this.addressName = geoData.getAddressName();
-	}
-
-	@Override
-	public Long getId() {
-		return id;
-	}
-
-	@Override
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public Double getLatitude() {

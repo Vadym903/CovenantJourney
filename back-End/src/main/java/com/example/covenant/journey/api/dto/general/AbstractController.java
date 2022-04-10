@@ -72,7 +72,7 @@ public abstract class AbstractController<
 		return convertEntityToResponse(service.create(entity));
 	}
 
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping
 	@ResponseBody
 	public ResponsePage<Response> findItems(
 			@RequestParam(required = false) Optional<String> search,

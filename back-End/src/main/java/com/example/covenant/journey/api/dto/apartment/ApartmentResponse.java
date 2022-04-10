@@ -2,6 +2,7 @@ package com.example.covenant.journey.api.dto.apartment;
 
 import com.example.covenant.journey.api.dto.general.AbstractResponse;
 import com.example.covenant.journey.api.dto.geodata.GeoDataResponse;
+import com.example.covenant.journey.api.dto.user.UserResponse;
 import com.example.covenant.journey.model.apartment.Apartment;
 import com.example.covenant.journey.model.apartment.ApartmentType;
 import io.swagger.annotations.ApiModelProperty;
@@ -20,12 +21,17 @@ public class ApartmentResponse extends AbstractResponse {
 	@ApiModelProperty(notes = "Geographical information of the Apartment")
 	private GeoDataResponse geoData;
 
+	private UserResponse user;
+
 	public ApartmentResponse(Apartment apartment) {
 		super(apartment);
 		this.name = apartment.getName();
 		this.apartmentType = apartment.getApartmentType();
 		this.description = apartment.getDescription();
 		this.geoData = new GeoDataResponse(apartment.getGeoData());
+		if (apartment.getUser() != null) {
+			this.user = new UserResponse(apartment.getUser());
+		}
 	}
 
 	public String getName() {
@@ -58,5 +64,13 @@ public class ApartmentResponse extends AbstractResponse {
 
 	public void setGeoData(GeoDataResponse geoData) {
 		this.geoData = geoData;
+	}
+
+	public UserResponse getUser() {
+		return user;
+	}
+
+	public void setUser(UserResponse user) {
+		this.user = user;
 	}
 }

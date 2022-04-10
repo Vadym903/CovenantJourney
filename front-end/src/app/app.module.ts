@@ -13,25 +13,36 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./modules/matherial.module";
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { CookieService } from "ngx-cookie-service";
+import { ApartmentsComponent } from './components/apartments/apartments.component';
+import { ModifyApartmentDialogComponent } from "./components/apartments/modify-apartment-dialog/modify-apartment-dialog.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MapComponent,
-    MarkerCardComponent,
-    HomeComponent,
-    NavBarComponent,
-    LoginComponent
-  ],
+    declarations: [
+        AppComponent,
+        MapComponent,
+        MarkerCardComponent,
+        HomeComponent,
+        NavBarComponent,
+        LoginComponent,
+        ApartmentsComponent,
+        ModifyApartmentDialogComponent
+    ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         AppRoutingModule,
         LeafletModule,
         RouterModule,
+        FormsModule,
+        ReactiveFormsModule,
         BrowserAnimationsModule,
         MaterialModule
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [HttpClientModule, CookieService],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

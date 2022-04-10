@@ -29,7 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
             AuthController.URL + "/registration",
             UserController.API_URL + "/{id}",
             PhotoController.URL + "/{id}",
-            AuthController.URL + "/login"
+            AuthController.URL + "/login",
+            "swagger-ui.html"
     };
 
 //    @Override
@@ -47,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, PUBLIC_API).permitAll()
-                .antMatchers("/**").authenticated()
+//                .antMatchers("/**").authenticated()
                 .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }

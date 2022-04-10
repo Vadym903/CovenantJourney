@@ -1,3 +1,20 @@
 .login-popup .mat-dialog-container {
 	border-radius: 12px;
+	width: 568px;
+	padding: 0 24px 24px 24px;
+	box-sizing: border-box;
+}
+
+.modify-apartment-dialog .mat-dialog-container {
+	width: 100vw;
+	height: 100vh;
+	max-width: unset;
+	max-height: unset;
+	box-sizing: border-box;
+	padding: unset;
+	border-radius: unset;
+}
+
+.modify-apartment-dialog {
+	max-width: unset !important;
 }

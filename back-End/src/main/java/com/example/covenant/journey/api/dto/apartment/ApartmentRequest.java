@@ -6,6 +6,8 @@ import com.example.covenant.journey.model.apartment.Apartment;
 import com.example.covenant.journey.model.apartment.ApartmentType;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotNull;
+
 public class ApartmentRequest extends AbstractRequest<Apartment> {
 
 	@ApiModelProperty(notes = "Name of the Apartment", example = "Classic hall")
@@ -18,6 +20,7 @@ public class ApartmentRequest extends AbstractRequest<Apartment> {
 	private String description;
 
 	@ApiModelProperty(notes = "Geographical information of the Apartment")
+	@NotNull
 	private GeoDataRequest geoData;
 
 	@Override
@@ -30,6 +33,7 @@ public class ApartmentRequest extends AbstractRequest<Apartment> {
 		entity.setName(this.name);
 		entity.setApartmentType(this.apartmentType);
 		entity.setDescription(this.description);
+		entity.setGeoData(this.geoData.createEntity());
 		return entity;
 	}
 

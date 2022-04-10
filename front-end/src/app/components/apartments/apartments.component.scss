@@ -1,0 +1,47 @@
+@mixin configure-indents() {
+	width: 1300px;
+	margin: 0 auto;
+}
+
+section {
+	.welcome-container {
+		height: 255px;
+		width: 100%;
+		background: rgb(216, 216, 217);
+		background: linear-gradient(107deg, rgba(216, 216, 217, 1) 0%, rgba(66, 42, 157, 1) 0%, rgba(208, 35, 119, 1) 100%);
+		color: #FFFFFF;
+		line-height: 36px;
+
+		.container-with-indents {
+			@include configure-indents();
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+
+			.title {
+				display: flex;
+				justify-content: space-between;
+
+				span {
+					font-size: 32px;
+					font-weight: 600;
+				}
+
+				button {
+					padding: 0 15px;
+					font-size: 15px;
+					background-color: white;
+					border: unset;
+					cursor: pointer;
+					border-radius: 10px;
+				}
+			}
+
+			.description {
+				font-size: 14px;
+			}
+		}
+
+	}
+}

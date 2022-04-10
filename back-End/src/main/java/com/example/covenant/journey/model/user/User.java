@@ -30,7 +30,7 @@ public class User implements AbstractEntity {
     @NotBlank
     private String fullName;
 
-    @Column(name = "login")
+    @Column(name = "login", unique = true)
     @Size(min = 3)
     private String login;
 
@@ -39,7 +39,7 @@ public class User implements AbstractEntity {
     @Size(min = 3)
     private String password;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "role", nullable = false)
