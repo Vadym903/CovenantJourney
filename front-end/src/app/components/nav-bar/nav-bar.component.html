@@ -3,8 +3,18 @@
 		<img src="assets/images/icon.png" alt="logo">
 	</div>
 
-	<div class="actions-container">
-		<button mat-raised-button class="default-button">Registration</button>
-		<button mat-raised-button class="default-button" (click)="openLoginPopup()">Login</button>
+	<div class="middle-container">
+		<a [routerLink]="['/apartments']" routerLinkActive="active-link">Your Apartments</a>
 	</div>
+
+	<div class="right-container">
+		<div class="user-container" *ngIf="user">
+			{{user.fullName}}
+		</div>
+		<div class="actions-container">
+			<button mat-raised-button class="default-button" (click)="openLoginPopup()" *ngIf="!user">Login</button>
+			<button mat-raised-button class="default-button" (click)="logOut()" *ngIf="user">Log out</button>
+		</div>
+	</div>
+
 </section>

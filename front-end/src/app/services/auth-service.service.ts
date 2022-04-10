@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 import { User } from "../_models/user.model";
 import { AuthRequest } from "../_models/auth-request.model";
 import { AuthResponse } from "../_models/auth-response.model";
-import { CookieStorage } from "cookie-storage";
+import { CookieService } from "ngx-cookie-service";
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +20,7 @@ export class AuthService {
 
     constructor(private http: HttpClient,
                 private router: Router,
-                private cookieStorage: CookieStorage) {
+                private cookieService: CookieService) {
     }
 
     public getCurrentUser$(): Observable<User> {
@@ -29,7 +29,7 @@ export class AuthService {
 
     public getCurrentUser(): User {
         if (!this.currentUserSubject.value) {
-            const user = this.cookieStorage.getItem('user');
+            const user = this.cookieService.get('user');
             if (user) {
                 this.currentUserSubject.next(User.fromObject(JSON.parse(user) as User));
             }
@@ -49,12 +49,13 @@ export class AuthService {
     public logOut(): void {
         this.router.navigateByUrl('/');
         sessionStorage.clear();
+        this.cookieService.deleteAll();
         this.currentUserSubject.next(null);
     }
 
     private onLogin(response: AuthResponse): AuthResponse {
-        this.cookieStorage.setItem('userToken', response.token);
-        this.cookieStorage.setItem('user', JSON.stringify(response.user));
+        this.cookieService.set('userToken', response.token);
+        this.cookieService.set('user', JSON.stringify(response.user));
         this.currentUserSubject.next(response.user);
         return response;
     }

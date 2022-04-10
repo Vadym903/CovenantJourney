@@ -1,0 +1,15 @@
+<section>
+	<div class="header-container">
+		<button>x</button>
+		<div class="title">Log in or sign up</div>
+	</div>
+	<hr>
+
+	<div class="welcome-message">Welcome to Covenant Journey</div>
+	<form [formGroup]="authForm">
+		<input formControlName="login" placeholder="login">
+		<input formControlName="password" placeholder="password">
+	</form>
+
+	<button mat-raised-button class="log-in-button" (click)="login()">Log in</button>
+</section>

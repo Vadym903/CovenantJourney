@@ -16,9 +16,29 @@ section {
 		}
 	}
 
-	.actions-container {
-		button {
-			margin-left: 10px;
+	.middle-container {
+		a {
+			color: black;
+			text-decoration: unset;
+		}
+
+		.active-link {
+
 		}
 	}
+
+	.right-container {
+		display: flex;
+		align-items: center;
+		.user-container {
+			font-size: 16px;
+		}
+		.actions-container {
+			margin-left: 10px;
+			button {
+				margin-left: 10px;
+			}
+		}
+	}
+
 }

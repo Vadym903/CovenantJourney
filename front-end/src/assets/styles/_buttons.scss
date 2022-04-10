@@ -13,4 +13,13 @@ button {
 		box-shadow: unset;
 		border-radius: 15px;
 	}
+
+	@include configure-mat-raised-button(log-in-button) {
+		height: 48px;
+		width: 100%;
+		border-radius: 10px;
+		color: white;
+		background-size: 200% 200%;
+		background-image: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
+	}
 }
