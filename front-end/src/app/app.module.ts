@@ -18,6 +18,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { CookieService } from "ngx-cookie-service";
 import { ApartmentsComponent } from './components/apartments/apartments.component';
 import { ModifyApartmentDialogComponent } from "./components/apartments/modify-apartment-dialog/modify-apartment-dialog.component";
+import { ApartmentFormComponent } from './components/apartments/modify-apartment-dialog/apartment-form/apartment-form.component';
+import { CommonModule } from "@angular/common";
+import { ApartmentMapComponent } from './components/apartments/modify-apartment-dialog/apartment-map/apartment-map.component';
+import { DescriptionFormComponent } from './components/description-form/description-form.component';
+import { NgxEditorModule } from "ngx-editor";
+import { SingleApartmentCardComponent } from './components/apartments/single-apartment-card/single-apartment-card.component';
 
 @NgModule({
     declarations: [
@@ -28,10 +34,15 @@ import { ModifyApartmentDialogComponent } from "./components/apartments/modify-a
         NavBarComponent,
         LoginComponent,
         ApartmentsComponent,
-        ModifyApartmentDialogComponent
+        ModifyApartmentDialogComponent,
+        ApartmentFormComponent,
+        ApartmentMapComponent,
+        DescriptionFormComponent,
+        SingleApartmentCardComponent
     ],
     imports: [
         BrowserModule,
+        CommonModule,
         HttpClientModule,
         AppRoutingModule,
         LeafletModule,
@@ -39,7 +50,8 @@ import { ModifyApartmentDialogComponent } from "./components/apartments/modify-a
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        MaterialModule
+        MaterialModule,
+        NgxEditorModule
     ],
     providers: [HttpClientModule, CookieService],
     bootstrap: [AppComponent]

@@ -2,11 +2,11 @@ import { AbstractModel } from "./abstract-model.model";
 
 export class GeoData extends AbstractModel {
 
-    constructor(public override id: number,
-                public latitude: number,
-                public longitude: number,
-                public altitude: number,
-                public addressName: string
+    constructor(public override id?: number,
+                public latitude?: number,
+                public longitude?: number,
+                public altitude?: number,
+                public addressName?: string
     ) {
         super(id);
     }
@@ -21,6 +21,7 @@ export class GeoData extends AbstractModel {
         );
     }
 
+    // @ts-ignore
     fromObject(object: GeoData): GeoData {
         return GeoData.fromObject(object);
     }

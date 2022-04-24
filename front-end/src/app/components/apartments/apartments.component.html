@@ -8,5 +8,14 @@
 			<div class="description">Here you can create/edit/view your apartments</div>
 		</div>
 	</div>
-
+	<div class="main-container">
+		<div class="title">Your apartments</div>
+		<div class="apartment-types">
+			<div class="type active">Active({{apartments.length}})</div>
+			<div class="type">Archived(0)</div>
+		</div>
+		<div class="apartments-container">
+			<app-single-apartment-card *ngFor="let apartment of apartments" [_apartment]="apartment"></app-single-apartment-card>
+		</div>
+	</div>
 </section>

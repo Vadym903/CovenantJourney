@@ -1,0 +1,19 @@
+ngx-editor {
+	.NgxEditor {
+		min-height: 200px !important;
+		max-height: 420px !important;
+		overflow-y: scroll;
+	}
+}
+
+ngx-editor-menu {
+	.NgxEditor__MenuBar {
+		display: flex;
+		flex-wrap: wrap;
+		border-bottom: 1px solid #89A2B8;
+	}
+}
+
+.NgxEditor__Content {
+	height: 200px;
+}

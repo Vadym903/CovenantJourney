@@ -2,6 +2,18 @@
 	<div class="header-line"></div>
 	<div class="header">
 		<div class="title">Creating mode</div>
-		<button (click)="close()">x</button>
+		<div class="buttons">
+			<button (click)="save()" class="action-button"> Save</button>
+			<button (click)="close()" class="close-button">x</button>
+		</div>
 	</div>
+	<div class="main-container">
+		<div class="left-container">
+			<app-apartment-form [apartmentForm]="apartmentForm"></app-apartment-form>
+		</div>
+		<div class="right-container">
+			<app-apartment-map [form]="apartmentForm"></app-apartment-map>
+		</div>
+	</div>
+
 </section>

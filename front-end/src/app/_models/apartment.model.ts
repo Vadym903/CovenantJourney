@@ -5,9 +5,10 @@ import { GeoData } from "./geo-data.model";
 export class Apartment extends AbstractModel {
 
     constructor(public override id: number,
-                public name: string,
-                public apartmentType: ApartmentType,
-                public geoData) {
+                public name?: string,
+                public apartmentType?: ApartmentType,
+                public geoData?: GeoData,
+                public description?: string) {
         super(id);
     }
 
@@ -16,7 +17,8 @@ export class Apartment extends AbstractModel {
             object.id,
             object.name,
             object.apartmentType,
-            GeoData.fromObject(object.geoData)
+            GeoData.fromObject(object.geoData),
+            object.description
         );
     }
 
