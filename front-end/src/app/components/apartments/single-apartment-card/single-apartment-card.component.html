@@ -1,0 +1,28 @@
+<section *ngIf="apartment">
+	<div class="left-container">
+		<div class="image-container">
+
+		</div>
+	</div>
+	<div class="right-container">
+		<div class="header-section">
+			<div class="title-container">
+				<div class="title">{{apartment.name}}</div>
+				<div class="address">{{apartment.geoData.addressName}}</div>
+			</div>
+			<div class="feedback-container">
+				<div class="mark-container">
+					<div class="mark">
+						<mat-icon>star</mat-icon>
+						<span>4.9</span></div>
+					<div class="feedbacks">239 marks</div>
+				</div>
+			</div>
+		</div>
+		<div class="description" *ngIf="apartment?.description" [innerHTML]="descriptionHtml"></div>
+		<div class="actions-container">
+			<button>Archive</button>
+			<button>Edit</button>
+		</div>
+	</div>
+</section>

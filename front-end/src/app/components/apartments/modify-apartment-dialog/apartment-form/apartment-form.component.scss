@@ -1,0 +1,34 @@
+section {
+	form {
+		.field {
+			position: relative;
+
+			&-title {
+				position: absolute;
+				color: #3c3b3d;
+				font-size: 13px;
+				font-weight: 500;
+				margin-left: 9px;
+				margin-top: 2px;
+			}
+
+			input {
+				height: 60px;
+				padding: 15px;
+				width: 447px;
+				font-size: 18px;
+				border-radius: 15px;
+				box-sizing: border-box;
+				border: 1px solid #c2bebe;
+			}
+		}
+
+		.description {
+			margin-top: 22px;
+		}
+
+		.type-container {
+			margin-top: 25px;
+		}
+	}
+}

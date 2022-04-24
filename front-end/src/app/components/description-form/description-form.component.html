@@ -1,0 +1,4 @@
+<div [formGroup]="_form" class="editor" *ngIf="descriptionControl && _form">
+	<ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+	<ngx-editor [editor]="editor" [formControl]="descriptionControl"></ngx-editor>
+</div>

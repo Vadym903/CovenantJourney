@@ -1,0 +1,20 @@
+<section>
+	<form [formGroup]="apartmentForm">
+		<div class="field">
+			<div class="field-title">Name</div>
+			<input formControlName="name">
+		</div>
+		<div class="field type-container">
+			<div class="field-title">Type</div>
+			<mat-select formControlName="apartmentType" class="select-apartment-type">
+				<mat-option *ngFor="let type of typesToSelect" [value]="type">
+					<span>{{type.toLowerCase().replace('_', ' ') | titlecase}}</span>
+<!--					<img src="/assets/images/apartment-type/{{type}}.jpeg" alt="apartment-type-image">-->
+				</mat-option>
+			</mat-select>
+		</div>
+		<div class="description">
+			<app-description-form [parentForm]="apartmentForm"></app-description-form>
+		</div>
+	</form>
+</section>
