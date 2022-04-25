@@ -24,6 +24,8 @@ import { ApartmentMapComponent } from './components/apartments/modify-apartment-
 import { DescriptionFormComponent } from './components/description-form/description-form.component';
 import { NgxEditorModule } from "ngx-editor";
 import { SingleApartmentCardComponent } from './components/apartments/single-apartment-card/single-apartment-card.component';
+import { AllApartmentsComponent } from './components/all-apartments/all-apartments.component';
+import { SmallApartmentInfoComponent } from './components/all-apartments/small-apartment-info/small-apartment-info.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +40,9 @@ import { SingleApartmentCardComponent } from './components/apartments/single-apa
         ApartmentFormComponent,
         ApartmentMapComponent,
         DescriptionFormComponent,
-        SingleApartmentCardComponent
+        SingleApartmentCardComponent,
+        AllApartmentsComponent,
+        SmallApartmentInfoComponent
     ],
     imports: [
         BrowserModule,

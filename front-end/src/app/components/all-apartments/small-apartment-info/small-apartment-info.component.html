@@ -1,0 +1,11 @@
+<section *ngIf="apartment">
+	<div class="image-container"></div>
+	<div class="header-row">
+		<div class="title">{{apartment.name}}</div>
+		<div class="mark">
+			<mat-icon>star</mat-icon>
+			<span>4.9</span>
+		</div>
+	</div>
+	<div class="location-row">{{apartment.geoData.addressName}}</div>
+</section>
