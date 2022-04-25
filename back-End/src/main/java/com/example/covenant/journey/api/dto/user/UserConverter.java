@@ -1,7 +1,7 @@
 package com.example.covenant.journey.api.dto.user;
 
 import com.example.covenant.journey.model.user.User;
-import com.example.covenant.journey.services.photo.PhotoService;
+import com.example.covenant.journey.services.photo.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class UserConverter {
 
     @Autowired
-    private PhotoService photoService;
+    private ImageService imageService;
 
     public User convertRequestToEntity(UserRequest userRequest) {
         User user = new User();
@@ -18,9 +18,9 @@ public class UserConverter {
         user.setPassword(userRequest.getPassword());
         user.setLogin(userRequest.getLogin());
         user.setDescription(userRequest.getDescription());
-        if (userRequest.getPhotoId() != null) {
-            user.setPhoto(photoService.getShorterPhotoEntityById(userRequest.getPhotoId()));
-        }
+//        if (userRequest.getPhotoId() != null) {
+//            user.setPhoto(imageService.getShorterPhotoEntityById(userRequest.getPhotoId()));
+//        }
         return user;
     }
 
@@ -32,9 +32,9 @@ public class UserConverter {
         response.setLogin(user.getLogin());
         response.setRole(user.getRole());
         response.setDescription(user.getDescription());
-        if (user.getPhoto() != null) {
-            response.setPhotoId(user.getPhoto().getId());
-        }
+//        if (user.getPhoto() != null) {
+//            response.setPhotoId(user.getPhoto().getId());
+//        }
         return response;
     }
 

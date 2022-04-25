@@ -59,6 +59,10 @@ public abstract class AbstractService<Entity extends AbstractEntity> {
 		return getRepository().findById(id).orElse(null);
 	}
 
+	public Entity getOne(Specification<Entity> specification) {
+		return getRepository().findOne(specification).orElse(null);
+	}
+
 	public Page<Entity> findAll(Specification<Entity> specification, Pageable pageable) {
 		return getRepository().findAll(specification, pageable);
 	}

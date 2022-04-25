@@ -29,7 +29,14 @@ export class ModifyApartmentDialogComponent implements OnInit {
 
     save(): void {
         const formValue = this.apartmentForm.value;
-        this.apartmentService.create$(formValue).subscribe(resp => this.dialog.close(true));
+        const images = formValue.images;
+
+        this.apartmentService.create$(formValue).subscribe(resp => {
+            if (images.length > 0) {
+                this.apartmentService.createImages(resp.id, images).subscribe(() => this.dialog.close(true));
+            }
+            this.dialog.close(true);
+        });
     }
 
     private initForm(): void {
@@ -37,7 +44,8 @@ export class ModifyApartmentDialogComponent implements OnInit {
             name: this.fb.control(this.apartment?.name || '', [Validators.required]),
             apartmentType: this.fb.control(this.apartment?.apartmentType || null, [Validators.required]),
             description: this.fb.control(this.apartment?.description || "", [Validators.required]),
-            geoData: this.fb.control(this.apartment?.geoData || '', [Validators.required])
+            geoData: this.fb.control(this.apartment?.geoData || '', [Validators.required]),
+            images: [[]]
         });
     }
 

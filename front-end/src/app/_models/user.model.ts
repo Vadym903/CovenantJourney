@@ -2,11 +2,11 @@ import { AbstractModel } from "./abstract-model.model";
 
 export class User extends AbstractModel {
 
-    constructor(public override id: number,
-                public fullName: string,
-                public login: string,
-                public email: string,
-                public role: string,
+    constructor(public override id?: number,
+                public fullName?: string,
+                public login?: string,
+                public email?: string,
+                public role?: string,
                 public description?: string) {
         super(id);
     }

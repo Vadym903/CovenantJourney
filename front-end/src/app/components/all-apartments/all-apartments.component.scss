@@ -1,0 +1,23 @@
+@mixin configure-indents() {
+	margin: 0 96px;
+}
+section {
+	.filters-section {
+		@include configure-indents();
+		margin-top: 27px;
+		height: 40px;
+	}
+
+	.apartments-container {
+		@include configure-indents();
+		margin-top: 36px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		gap: 10px 15px;
+		grid-template-areas:
+        ". . ."
+        ". . ."
+        ". . .";
+	}
+}

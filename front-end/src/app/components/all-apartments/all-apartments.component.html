@@ -1,0 +1,10 @@
+<section>
+	<div class="filters-section">
+		filters
+	</div>
+	<div class="apartments-container">
+		<app-small-apartment-info *ngFor="let apartment of apartments"
+								  [_apartment]="apartment"></app-small-apartment-info>
+	</div>
+	
+</section>

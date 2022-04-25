@@ -3,10 +3,12 @@ package com.example.covenant.journey.api.dto.apartment;
 import com.example.covenant.journey.api.dto.general.AbstractRequest;
 import com.example.covenant.journey.api.dto.geodata.GeoDataRequest;
 import com.example.covenant.journey.model.apartment.Apartment;
+import com.example.covenant.journey.model.apartment.ApartmentAccommodations;
 import com.example.covenant.journey.model.apartment.ApartmentType;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 public class ApartmentRequest extends AbstractRequest<Apartment> {
 
@@ -23,6 +25,9 @@ public class ApartmentRequest extends AbstractRequest<Apartment> {
 	@NotNull
 	private GeoDataRequest geoData;
 
+	@ApiModelProperty(notes = "Apartment accommodations")
+	private List<ApartmentAccommodations> accommodations;
+
 	@Override
 	public Apartment createEntity() {
 		return updateEntity(new Apartment());
@@ -34,6 +39,7 @@ public class ApartmentRequest extends AbstractRequest<Apartment> {
 		entity.setApartmentType(this.apartmentType);
 		entity.setDescription(this.description);
 		entity.setGeoData(this.geoData.createEntity());
+		entity.setAccommodations(this.accommodations);
 		return entity;
 	}
 
@@ -69,4 +75,11 @@ public class ApartmentRequest extends AbstractRequest<Apartment> {
 		this.geoData = geoData;
 	}
 
+	public List<ApartmentAccommodations> getAccommodations() {
+		return accommodations;
+	}
+
+	public void setAccommodations(List<ApartmentAccommodations> accommodations) {
+		this.accommodations = accommodations;
+	}
 }

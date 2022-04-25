@@ -14,16 +14,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./modules/matherial.module";
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { CookieService } from "ngx-cookie-service";
-import { ApartmentsComponent } from './components/apartments/apartments.component';
-import { ModifyApartmentDialogComponent } from "./components/apartments/modify-apartment-dialog/modify-apartment-dialog.component";
-import { ApartmentFormComponent } from './components/apartments/modify-apartment-dialog/apartment-form/apartment-form.component';
+import { ApartmentsComponent } from './components/my-apartments/apartments.component';
+import { ModifyApartmentDialogComponent } from "./components/my-apartments/modify-apartment-dialog/modify-apartment-dialog.component";
+import { ApartmentFormComponent } from './components/my-apartments/modify-apartment-dialog/apartment-form/apartment-form.component';
 import { CommonModule } from "@angular/common";
-import { ApartmentMapComponent } from './components/apartments/modify-apartment-dialog/apartment-map/apartment-map.component';
+import { ApartmentMapComponent } from './components/my-apartments/modify-apartment-dialog/apartment-map/apartment-map.component';
 import { DescriptionFormComponent } from './components/description-form/description-form.component';
 import { NgxEditorModule } from "ngx-editor";
-import { SingleApartmentCardComponent } from './components/apartments/single-apartment-card/single-apartment-card.component';
+import { SingleApartmentCardComponent } from './components/my-apartments/single-apartment-card/single-apartment-card.component';
+import { AllApartmentsComponent } from './components/all-apartments/all-apartments.component';
+import { SmallApartmentInfoComponent } from './components/all-apartments/small-apartment-info/small-apartment-info.component';
+import { ModifyApartmentImagesComponent } from "./components/my-apartments/modify-apartment-dialog/modify-apartment-images/modify-apartment-images.component";
+import { AuthInterceptor } from "./_interceptors/auth.interceptor";
+import { NgxFileDropModule } from "ngx-file-drop";
 
 @NgModule({
     declarations: [
@@ -38,7 +43,10 @@ import { SingleApartmentCardComponent } from './components/apartments/single-apa
         ApartmentFormComponent,
         ApartmentMapComponent,
         DescriptionFormComponent,
-        SingleApartmentCardComponent
+        SingleApartmentCardComponent,
+        AllApartmentsComponent,
+        SmallApartmentInfoComponent,
+        ModifyApartmentImagesComponent
     ],
     imports: [
         BrowserModule,
@@ -51,9 +59,14 @@ import { SingleApartmentCardComponent } from './components/apartments/single-apa
         ReactiveFormsModule,
         BrowserAnimationsModule,
         MaterialModule,
-        NgxEditorModule
+        NgxEditorModule,
+        NgxFileDropModule
     ],
-    providers: [HttpClientModule, CookieService],
+    providers: [
+        HttpClientModule,
+        CookieService,
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

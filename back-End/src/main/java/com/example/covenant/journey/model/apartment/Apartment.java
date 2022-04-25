@@ -3,19 +3,27 @@ package com.example.covenant.journey.model.apartment;
 import com.example.covenant.journey.model.AbstractEntity;
 import com.example.covenant.journey.model.UserSpecific;
 import com.example.covenant.journey.model.geodata.GeoData;
+import com.example.covenant.journey.model.photo.Image;
 import com.example.covenant.journey.model.user.User;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -37,7 +45,17 @@ public class Apartment implements UserSpecific, AbstractEntity {
 	@Size(max = 10000)
 	private String description;
 
-	// TODO add images
+	@OneToMany
+	@JoinTable(name = "apartment_image",
+			joinColumns = @JoinColumn(name = "apartment_id", foreignKey = @ForeignKey(name = "fk_apartment_image_to_apartment")),
+			inverseJoinColumns = @JoinColumn(name = "image_id", foreignKey = @ForeignKey(name = "fk_apartment_image_to_image")))
+	private List<Image> images;
+
+	@Column(name = "accommodations")
+	@ElementCollection(targetClass = ApartmentAccommodations.class)
+	@CollectionTable(name = "apartment_accommodations", joinColumns = @JoinColumn(name = "apartment_id"))
+	@Enumerated(EnumType.STRING)
+	private List<ApartmentAccommodations> accommodations;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private GeoData geoData;
@@ -71,6 +89,22 @@ public class Apartment implements UserSpecific, AbstractEntity {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public List<ApartmentAccommodations> getAccommodations() {
+		return accommodations;
+	}
+
+	public void setAccommodations(List<ApartmentAccommodations> accommodations) {
+		this.accommodations = accommodations;
+	}
+
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
 	}
 
 	public void setDescription(String description) {

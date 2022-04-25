@@ -27,9 +27,7 @@ export class ApartmentsComponent implements OnInit {
     }
 
     private initPage(): void {
-        this.apartmentService.getPage$().subscribe(page => {
-            this.apartments = page.items;
-        });
+        this.apartmentService.getPage$().subscribe(page => this.apartments = page.items);
     }
 
 }

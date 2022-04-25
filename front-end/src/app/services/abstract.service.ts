@@ -73,7 +73,7 @@ export abstract class AbstractService<T extends AbstractModel> {
 
         return this.http.get<Page<T>>(this.apiPath, {params: queryParams})
             .pipe(map(page => {
-                page.items.map(item => this.fromObject(item));
+                page.items = page.items.map(item => this.fromObject(item));
                 return page;
             }));
     }

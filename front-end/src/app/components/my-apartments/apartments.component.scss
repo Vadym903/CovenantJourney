@@ -83,6 +83,13 @@ section {
 
 		.apartments-container {
 			margin-top: 24px;
+			padding-bottom: 30px;
+
+			.single-apartment {
+				&:not(first-child) {
+					margin-top: 20px;
+				}
+			}
 		}
 	}
 }

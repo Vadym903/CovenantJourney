@@ -2,10 +2,15 @@ package com.example.covenant.journey.api.dto.apartment;
 
 import com.example.covenant.journey.api.dto.general.AbstractResponse;
 import com.example.covenant.journey.api.dto.geodata.GeoDataResponse;
+import com.example.covenant.journey.api.dto.photo.ImageResponse;
 import com.example.covenant.journey.api.dto.user.UserResponse;
 import com.example.covenant.journey.model.apartment.Apartment;
+import com.example.covenant.journey.model.apartment.ApartmentAccommodations;
 import com.example.covenant.journey.model.apartment.ApartmentType;
 import io.swagger.annotations.ApiModelProperty;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ApartmentResponse extends AbstractResponse {
 
@@ -21,6 +26,12 @@ public class ApartmentResponse extends AbstractResponse {
 	@ApiModelProperty(notes = "Geographical information of the Apartment")
 	private GeoDataResponse geoData;
 
+	@ApiModelProperty(notes = "Apartment accommodations")
+	private List<ApartmentAccommodations> accommodations;
+
+	@ApiModelProperty(notes = "Apartment images")
+	private List<ImageResponse> images;
+
 	private UserResponse user;
 
 	public ApartmentResponse(Apartment apartment) {
@@ -32,6 +43,20 @@ public class ApartmentResponse extends AbstractResponse {
 		if (apartment.getUser() != null) {
 			this.user = new UserResponse(apartment.getUser());
 		}
+
+		this.accommodations = apartment.getAccommodations();
+
+		if (apartment.getImages() != null) {
+			this.images = apartment.getImages().stream().map(ImageResponse::new).collect(Collectors.toList());
+		}
+	}
+
+	public List<ImageResponse> getImages() {
+		return images;
+	}
+
+	public void setImages(List<ImageResponse> images) {
+		this.images = images;
 	}
 
 	public String getName() {
@@ -64,6 +89,14 @@ public class ApartmentResponse extends AbstractResponse {
 
 	public void setGeoData(GeoDataResponse geoData) {
 		this.geoData = geoData;
+	}
+
+	public List<ApartmentAccommodations> getAccommodations() {
+		return accommodations;
+	}
+
+	public void setAccommodations(List<ApartmentAccommodations> accommodations) {
+		this.accommodations = accommodations;
 	}
 
 	public UserResponse getUser() {

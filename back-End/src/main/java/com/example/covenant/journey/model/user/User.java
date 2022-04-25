@@ -1,17 +1,14 @@
 package com.example.covenant.journey.model.user;
 
 import com.example.covenant.journey.model.AbstractEntity;
-import com.example.covenant.journey.model.photo.ShorterPhotoEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -46,9 +43,6 @@ public class User implements AbstractEntity {
     @NotNull
     @Enumerated(EnumType.STRING)
     private UserRole role;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private ShorterPhotoEntity photo;
 
     @Column(name = "description")
     @Size(max = 10000)
@@ -100,14 +94,6 @@ public class User implements AbstractEntity {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public ShorterPhotoEntity getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(ShorterPhotoEntity photo) {
-        this.photo = photo;
     }
 
     public String getDescription() {

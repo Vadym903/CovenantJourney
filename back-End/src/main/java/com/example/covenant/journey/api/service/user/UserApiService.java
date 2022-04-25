@@ -6,7 +6,7 @@ import com.example.covenant.journey.api.dto.user.UserConverter;
 import com.example.covenant.journey.api.dto.user.UserRequest;
 import com.example.covenant.journey.api.dto.user.UserResponse;
 import com.example.covenant.journey.model.user.User;
-import com.example.covenant.journey.services.photo.PhotoService;
+import com.example.covenant.journey.services.photo.ImageService;
 import com.example.covenant.journey.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class UserApiService extends AbstractApiService<
         UserService> {
 
     @Autowired
-    private PhotoService photoService;
+    private ImageService imageService;
 
     @Autowired
     private UserConverter userConverter;
@@ -53,9 +53,7 @@ public class UserApiService extends AbstractApiService<
         entity.setFullName(request.getFullName());
         entity.setEmail(request.getEmail());
         entity.setDescription(request.getDescription());
-        if (request.getPhotoId() != null) {
-            entity.setPhoto(photoService.getShorterPhotoEntityById(request.getPhotoId()));
-        }
+
     }
 
     @Override
