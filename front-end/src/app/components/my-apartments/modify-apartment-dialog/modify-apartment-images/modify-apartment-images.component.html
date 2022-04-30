@@ -1,0 +1,25 @@
+<section>
+	<form class="form-group" [formGroup]="apartmentForm">
+
+		<div class="file-drop-zone">
+			<ngx-file-drop dropZoneClassName="drop-zone"
+						   contentClassName="drop-zone-content"
+						   (onFileDrop)="onFileChange($event)">
+				<ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+					<div (click)="openFileSelector()" class="select-image-container-wrap">
+						<div class="select-image-container">
+							<div class="main-message">Select images</div>
+							<div class="secondary-message">or just drop here</div>
+						</div>
+					</div>
+				</ng-template>
+			</ngx-file-drop>
+		</div>
+	</form>
+	<div class="uploaded-images-container">
+		<div class="image-container" *ngFor="let file of loadedFilesToShow">
+			<button (click)="removeFile(file)">X</button>
+			<img alt="img" [src]="file" class="img-preview">
+		</div>
+	</div>
+</section>

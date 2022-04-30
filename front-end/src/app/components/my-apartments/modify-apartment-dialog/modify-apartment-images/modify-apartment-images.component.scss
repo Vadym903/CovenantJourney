@@ -1,0 +1,72 @@
+section {
+	form {
+		.file-drop-zone {
+			width: 150px;
+			height: 150px;
+
+			.select-image-container-wrap {
+				background-size: 200% 200%;
+				background-image: radial-gradient(circle at center center, #ff385c 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				padding: 2px;
+
+				.select-image-container {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+
+					width: 100%;
+					height: 100%;
+					color: #222222;
+					box-sizing: border-box;
+					background-color: white;
+
+					.main-message {
+						font-size: 18px;
+						font-weight: 600;
+					}
+
+					.secondary-message {
+						font-size: 12px;
+					}
+				}
+			}
+		}
+	}
+
+	.uploaded-images-container {
+		margin-top: 15px;
+		display: flex;
+		gap: 20px;
+
+		.image-container {
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+			position: relative;
+
+			button {
+				position: absolute;
+				border: unset;
+				cursor: pointer;
+				color: red;
+				display: flex;
+				align-items: center;
+				left: 84%;
+				font-size: 18px;
+				background-color: rgba(255, 255, 255, .7);
+				justify-content: center;
+
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
