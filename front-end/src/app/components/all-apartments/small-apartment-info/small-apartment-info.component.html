@@ -1,6 +1,6 @@
 <section *ngIf="apartment">
 	<div class="image-container">
-		<img [src]="mainImage" alt="main image">
+		<app-image-carousel [images]="apartment.images"></app-image-carousel>
 	</div>
 	<div class="header-row">
 		<div class="title">{{apartment.name}}</div>

@@ -29,6 +29,10 @@ import { SmallApartmentInfoComponent } from './components/all-apartments/small-a
 import { ModifyApartmentImagesComponent } from "./components/my-apartments/modify-apartment-dialog/modify-apartment-images/modify-apartment-images.component";
 import { AuthInterceptor } from "./_interceptors/auth.interceptor";
 import { NgxFileDropModule } from "ngx-file-drop";
+import { ImageCarouselComponent } from './components/all-apartments/image-carousel/image-carousel.component';
+import { CarouselModule } from "ngx-owl-carousel-o";
+import { AllApartmentsMapComponent } from './components/all-apartments/all-apartments-map/all-apartments-map.component';
+import { CustomMapMarkerComponent } from './components/all-apartments/all-apartments-map/custom-map-marker/custom-map-marker.component';
 
 @NgModule({
     declarations: [
@@ -46,7 +50,10 @@ import { NgxFileDropModule } from "ngx-file-drop";
         SingleApartmentCardComponent,
         AllApartmentsComponent,
         SmallApartmentInfoComponent,
-        ModifyApartmentImagesComponent
+        ModifyApartmentImagesComponent,
+        ImageCarouselComponent,
+        AllApartmentsMapComponent,
+        CustomMapMarkerComponent
     ],
     imports: [
         BrowserModule,
@@ -60,7 +67,8 @@ import { NgxFileDropModule } from "ngx-file-drop";
         BrowserAnimationsModule,
         MaterialModule,
         NgxEditorModule,
-        NgxFileDropModule
+        NgxFileDropModule,
+        CarouselModule
     ],
     providers: [
         HttpClientModule,

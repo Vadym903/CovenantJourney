@@ -2,26 +2,22 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Apartment } from "../../../_models/apartment.model";
 
 @Component({
-    selector: 'app-small-apartment-info',
-    templateUrl: './small-apartment-info.component.html',
-    styleUrls: ['./small-apartment-info.component.scss']
+	selector: 'app-small-apartment-info',
+	templateUrl: './small-apartment-info.component.html',
+	styleUrls: ['./small-apartment-info.component.scss']
 })
 export class SmallApartmentInfoComponent implements OnInit {
 
-    @Input() set _apartment(apartment: Apartment) {
-        this.apartment = apartment;
-        if (apartment.images[0]) {
-            this.mainImage = apartment.images[0].imageFullPath;
-        }
-    };
+	@Input() set _apartment(apartment: Apartment) {
+		this.apartment = apartment;
+	};
 
-    mainImage;
-    apartment: Apartment;
+	apartment: Apartment;
 
-    constructor() {
-    }
+	constructor() {
+	}
 
-    ngOnInit(): void {
-    }
+	ngOnInit(): void {
+	}
 
 }

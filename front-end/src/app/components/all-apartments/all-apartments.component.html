@@ -6,5 +6,5 @@
 		<app-small-apartment-info *ngFor="let apartment of apartments"
 								  [_apartment]="apartment"></app-small-apartment-info>
 	</div>
-
+	<div class="open-map-container" (click)="openMap()">Open Map <mat-icon>map</mat-icon></div>
 </section>

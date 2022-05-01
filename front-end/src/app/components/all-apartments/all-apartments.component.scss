@@ -1,6 +1,7 @@
 @mixin configure-indents() {
 	margin: 0 96px;
 }
+
 section {
 	.filters-section {
 		@include configure-indents();
@@ -19,5 +20,25 @@ section {
         ". . ."
         ". . ."
         ". . .";
+	}
+
+	.open-map-container {
+		position: fixed;
+		width: 150px;
+		height: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #3c3b3d;
+		color: white;
+		z-index: 1;
+		top: 85%;
+		left: 46%;
+		border-radius: 30px;
+		cursor: pointer;
+
+		mat-icon {
+			margin-left: 10px;
+		}
 	}
 }
