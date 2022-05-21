@@ -1,0 +1,11 @@
+<section>
+	<div class="feedback-creation-container">
+		<button class="create-feedback-button" *ngIf="!feedbackForm" (click)="initFeedbackForm()">Add new feedback
+		</button>
+		<div class="create-feedback-form" *ngIf="feedbackForm">
+			<ngx-material-rating [color]="'accent'" [(ngModel)]="ratingConfig.value" [max]="ratingConfig.max">
+			</ngx-material-rating>
+		</div>
+	</div>
+</section>
+

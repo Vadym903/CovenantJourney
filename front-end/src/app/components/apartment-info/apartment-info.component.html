@@ -1,0 +1,28 @@
+<section *ngIf="apartment">
+	<div class="apartment-title">{{apartment.name}}</div>
+	<div class="apartment-address">{{apartment.geoData.addressName}}</div>
+	<div class="carousel">
+		<app-apartment-info-carousel [images]="apartment.images"></app-apartment-info-carousel>
+	</div>
+
+	<div class="main-container">
+		<div class="left-container">
+			<div class="description" *ngIf="apartment?.description" [innerHTML]="apartmentDescriptionHtml"></div>
+		</div>
+		<div class="right-container">
+			<div class="owner-block">
+				<div class="owner-title">
+					<div class="image">
+						<img src="assets/images/user_pic-50x50.png" alt="owner-image">
+					</div>
+					<div class="name">{{apartment.user.fullName}}</div>
+				</div>
+				<div class="divider"></div>
+				<div class="description" *ngIf="apartment?.user?.description" [innerHTML]="userDescriptionHtml"></div>
+			</div>
+		</div>
+	</div>
+	<div class="comments">
+		<app-apartment-comments [apartment]="apartment"></app-apartment-comments>
+	</div>
+</section>

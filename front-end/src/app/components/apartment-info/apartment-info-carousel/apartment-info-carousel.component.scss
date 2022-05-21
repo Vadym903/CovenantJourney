@@ -1,0 +1,35 @@
+section {
+	position: relative;
+
+	img {
+		height: 600px;
+		object-fit: cover;
+		border-radius: 15px;
+	}
+
+	.arrows-container {
+		display: none;
+		position: absolute;
+		width: 100%;
+		justify-content: space-between;
+		top: 300px;
+		z-index: 1;
+
+		button {
+			cursor: pointer;
+			background-color: rgba(255, 255, 255, .5);
+			border: unset;
+			width: 45px;
+			height: 45px;
+			border-radius: 20px;
+			font-size: 27px;
+			color: rgba(35, 34, 34, .8);
+		}
+	}
+
+	&:hover {
+		.arrows-container {
+			display: flex;
+		}
+	}
+}

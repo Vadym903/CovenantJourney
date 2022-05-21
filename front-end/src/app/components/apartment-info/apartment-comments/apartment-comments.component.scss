@@ -1,0 +1,20 @@
+@import "src/assets/styles/mixins";
+
+section {
+	.feedback-creation-container {
+		.create-feedback-button {
+			@include colorful-button(100%, 43px);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			border: unset;
+			border-radius: 15px;
+		}
+
+		.create-feedback-form {
+			border: 1px solid #DDDDDD;
+			padding: 5px;
+		}
+	}
+}
