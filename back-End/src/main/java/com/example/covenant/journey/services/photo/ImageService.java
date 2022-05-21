@@ -1,6 +1,5 @@
 package com.example.covenant.journey.services.photo;
 
-
 import com.example.covenant.journey.model.photo.Image;
 import com.example.covenant.journey.model.photo.ImageType;
 import com.example.covenant.journey.repositories.BaseRepository;

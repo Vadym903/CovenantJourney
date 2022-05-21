@@ -7,6 +7,7 @@ import com.example.covenant.journey.api.dto.user.UserResponse;
 import com.example.covenant.journey.model.apartment.Apartment;
 import com.example.covenant.journey.model.apartment.ApartmentAccommodations;
 import com.example.covenant.journey.model.apartment.ApartmentType;
+import com.example.covenant.journey.model.apartment.feedback.Feedback;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;
@@ -32,7 +33,11 @@ public class ApartmentResponse extends AbstractResponse {
 	@ApiModelProperty(notes = "Apartment images")
 	private List<ImageResponse> images;
 
+	@ApiModelProperty(notes = "Apartment's owner")
 	private UserResponse user;
+
+	@ApiModelProperty(notes = "Apartment's average mark")
+	private float averageMark;
 
 	public ApartmentResponse(Apartment apartment) {
 		super(apartment);
@@ -49,7 +54,18 @@ public class ApartmentResponse extends AbstractResponse {
 		if (apartment.getImages() != null) {
 			this.images = apartment.getImages().stream().map(ImageResponse::new).collect(Collectors.toList());
 		}
+
+		if (!apartment.getFeedbacks().isEmpty()) {
+			int feedbacksCount = apartment.getFeedbacks().size();
+			this.averageMark = (float) apartment.getFeedbacks()
+					.stream()
+					.map(Feedback::getCleanlinessMark)
+					.mapToInt(Short::shortValue)
+					.sum() / feedbacksCount;
+		}
 	}
+
+
 
 	public List<ImageResponse> getImages() {
 		return images;
@@ -105,5 +121,17 @@ public class ApartmentResponse extends AbstractResponse {
 
 	public void setUser(UserResponse user) {
 		this.user = user;
+	}
+
+	public Float getAverageMark() {
+		return averageMark;
+	}
+
+	public void setAverageMark(Float averageMark) {
+		this.averageMark = averageMark;
+	}
+
+	public void setAverageMark(float averageMark) {
+		this.averageMark = averageMark;
 	}
 }

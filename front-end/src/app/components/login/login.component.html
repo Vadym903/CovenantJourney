@@ -1,15 +1,31 @@
 <section>
 	<div class="header-container">
-		<button>x</button>
-		<div class="title">Log in or sign up</div>
+		<button (click)="close()">x</button>
+		<div class="title">
+			<span (click)="switchMode(true)" [ngClass]="{'active': isLoginMode}">Log in</span>
+			or
+			<span (click)="switchMode(false)" [ngClass]="{'active': !isLoginMode}">sign up</span>
+		</div>
 	</div>
 	<hr>
 
 	<div class="welcome-message">Welcome to Covenant Journey</div>
-	<form [formGroup]="authForm">
+	<form [formGroup]="authForm" *ngIf="isLoginMode; else registration">
 		<input formControlName="login" placeholder="login">
 		<input formControlName="password" placeholder="password">
 	</form>
 
 	<button mat-raised-button class="log-in-button" (click)="login()">Log in</button>
 </section>
+
+<ng-template #registration>
+	<form [formGroup]="registrationForm" *ngIf="registrationForm">
+		<input formControlName="login" placeholder="login">
+		<input formControlName="password" placeholder="password">
+		<input formControlName="fullName" placeholder="fullName">
+		<input formControlName="email" placeholder="email">
+		<div class="description">
+			<app-description-form [parentForm]="registrationForm" *ngIf="isLandLord"></app-description-form>
+		</div>
+	</form>
+</ng-template>

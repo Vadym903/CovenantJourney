@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from "./components/home/home.component";
 import { ApartmentsComponent } from "./components/my-apartments/apartments.component";
 import { AllApartmentsComponent } from "./components/all-apartments/all-apartments.component";
+import { ApartmentInfoComponent } from "./components/apartment-info/apartment-info.component";
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'my-my-apartments', component: ApartmentsComponent},
-    {path: 'all-my-apartments', component: AllApartmentsComponent}
+    {path: 'my-apartments', component: ApartmentsComponent},
+    {path: 'info/:id', component: ApartmentInfoComponent},
+    {path: 'all-apartments', component: AllApartmentsComponent}
 ];
 
 @NgModule({

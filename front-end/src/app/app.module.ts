@@ -33,6 +33,10 @@ import { ImageCarouselComponent } from './components/all-apartments/image-carous
 import { CarouselModule } from "ngx-owl-carousel-o";
 import { AllApartmentsMapComponent } from './components/all-apartments/all-apartments-map/all-apartments-map.component';
 import { CustomMapMarkerComponent } from './components/all-apartments/all-apartments-map/custom-map-marker/custom-map-marker.component';
+import { ApartmentInfoComponent } from './components/apartment-info/apartment-info.component';
+import { ApartmentInfoCarouselComponent } from './components/apartment-info/apartment-info-carousel/apartment-info-carousel.component';
+import { ApartmentCommentsComponent } from './components/apartment-info/apartment-comments/apartment-comments.component';
+import { NgxMaterialRatingModule } from "ngx-material-rating";
 
 @NgModule({
     declarations: [
@@ -53,7 +57,10 @@ import { CustomMapMarkerComponent } from './components/all-apartments/all-apartm
         ModifyApartmentImagesComponent,
         ImageCarouselComponent,
         AllApartmentsMapComponent,
-        CustomMapMarkerComponent
+        CustomMapMarkerComponent,
+        ApartmentInfoComponent,
+        ApartmentInfoCarouselComponent,
+        ApartmentCommentsComponent
     ],
     imports: [
         BrowserModule,
@@ -68,7 +75,8 @@ import { CustomMapMarkerComponent } from './components/all-apartments/all-apartm
         MaterialModule,
         NgxEditorModule,
         NgxFileDropModule,
-        CarouselModule
+        CarouselModule,
+        NgxMaterialRatingModule
     ],
     providers: [
         HttpClientModule,

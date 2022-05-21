@@ -1,4 +1,5 @@
 import { AbstractModel } from "./abstract-model.model";
+import { UserRole } from "./_enums/user-role.enum";
 
 export class User extends AbstractModel {
 
@@ -6,7 +7,7 @@ export class User extends AbstractModel {
                 public fullName?: string,
                 public login?: string,
                 public email?: string,
-                public role?: string,
+                public role?: UserRole,
                 public description?: string) {
         super(id);
     }

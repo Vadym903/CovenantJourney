@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Apartment } from "../../../_models/apartment.model";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: 'app-small-apartment-info',
@@ -14,10 +15,14 @@ export class SmallApartmentInfoComponent implements OnInit {
 
 	apartment: Apartment;
 
-	constructor() {
+	constructor(private router: Router) {
 	}
 
 	ngOnInit(): void {
+	}
+
+	openInfoPage() {
+		this.router.navigateByUrl(`info/${this.apartment.id}`);
 	}
 
 }

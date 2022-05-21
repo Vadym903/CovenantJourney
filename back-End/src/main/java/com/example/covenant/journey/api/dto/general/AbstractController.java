@@ -109,7 +109,7 @@ public abstract class AbstractController<
 		Entity entity = ControllerUtil.getOrNotFound(service.getOne(id));
 		request.updateEntity(entity);
 		validate(entity, request);
-		updateFields(entity, request, true);
+		updateFields(entity, request, false);
 		return convertEntityToResponse(service.update(entity));
 	}
 

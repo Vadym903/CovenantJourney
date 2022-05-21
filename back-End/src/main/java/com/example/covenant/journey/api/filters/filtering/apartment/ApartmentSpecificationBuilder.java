@@ -15,7 +15,6 @@ public class ApartmentSpecificationBuilder implements FilteringSpecificationsBui
 					ApartmentAccommodationsSpecificationBuilder.SUPPORTED_OPERATORS, new ApartmentAccommodationsSpecificationBuilder())
 	);
 
-
 	@Override
 	public List<FilterProperty<Apartment>> getFilterableProperties() {
 		return FILTERABLE_PROPERTIES;

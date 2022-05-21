@@ -1,12 +1,12 @@
 <section>
 	<div class="logo-container">
-		<a [routerLink]="['/all-my-apartments']">
+		<a [routerLink]="['/all-apartments']">
 			<img src="assets/images/icon.png" alt="logo">
 		</a>
 	</div>
 
 	<div class="middle-container">
-		<a [routerLink]="['/my-my-apartments']" routerLinkActive="active-link">My Apartments</a>
+		<a [routerLink]="['/my-apartments']" routerLinkActive="active-link">My Apartments</a>
 	</div>
 
 	<div class="right-container">
@@ -14,7 +14,10 @@
 			{{user.fullName}}
 		</div>
 		<div class="actions-container">
-			<button mat-raised-button class="default-button" (click)="openLoginPopup()" *ngIf="!user">Login</button>
+			<ng-container *ngIf="!user">
+				<button mat-raised-button class="landlord-registration" (click)="landlordRegistration()" >I'm a Landlord</button>
+				<button mat-raised-button class="default-button" (click)="openLoginPopup()" >Login</button>
+			</ng-container>
 			<button mat-raised-button class="default-button" (click)="logOut()" *ngIf="user">Log out</button>
 		</div>
 	</div>

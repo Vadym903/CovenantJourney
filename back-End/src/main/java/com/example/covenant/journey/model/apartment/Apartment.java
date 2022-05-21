@@ -2,6 +2,7 @@ package com.example.covenant.journey.model.apartment;
 
 import com.example.covenant.journey.model.AbstractEntity;
 import com.example.covenant.journey.model.UserSpecific;
+import com.example.covenant.journey.model.apartment.feedback.Feedback;
 import com.example.covenant.journey.model.geodata.GeoData;
 import com.example.covenant.journey.model.photo.Image;
 import com.example.covenant.journey.model.user.User;
@@ -23,6 +24,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -50,6 +52,9 @@ public class Apartment implements UserSpecific, AbstractEntity {
 			joinColumns = @JoinColumn(name = "apartment_id", foreignKey = @ForeignKey(name = "fk_apartment_image_to_apartment")),
 			inverseJoinColumns = @JoinColumn(name = "image_id", foreignKey = @ForeignKey(name = "fk_apartment_image_to_image")))
 	private List<Image> images;
+
+	@OneToMany(mappedBy = "apartment")
+	private List<Feedback> feedbacks = new ArrayList<>();
 
 	@Column(name = "accommodations")
 	@ElementCollection(targetClass = ApartmentAccommodations.class)
@@ -117,6 +122,14 @@ public class Apartment implements UserSpecific, AbstractEntity {
 
 	public void setGeoData(GeoData geoData) {
 		this.geoData = geoData;
+	}
+
+	public List<Feedback> getFeedbacks() {
+		return feedbacks;
+	}
+
+	public void setFeedbacks(List<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
 	}
 
 	@Override

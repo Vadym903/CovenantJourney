@@ -1,5 +1,5 @@
 <section *ngIf="apartment">
-	<div class="image-container">
+	<div class="image-container" (click)="openInfoPage()">
 		<app-image-carousel [images]="apartment.images"></app-image-carousel>
 	</div>
 	<div class="header-row">

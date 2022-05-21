@@ -4,4 +4,5 @@ public class APIConstants {
 
 	public static final String USER_API = "/users";
 	public static final String APARTMENT_API = "/apartments";
+	public static final String FEEDBACK_API = "/feedbacks";
 }

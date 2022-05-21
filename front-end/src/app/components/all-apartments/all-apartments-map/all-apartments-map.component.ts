@@ -1,12 +1,4 @@
-import {
-	Component,
-	ComponentFactory,
-	ComponentFactoryResolver,
-	ElementRef,
-	OnInit,
-	TemplateRef,
-	ViewContainerRef
-} from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
 import { ApartmentService } from "../../../services/apartment.service";
 import { divIcon, latLng, marker, tileLayer } from "leaflet";

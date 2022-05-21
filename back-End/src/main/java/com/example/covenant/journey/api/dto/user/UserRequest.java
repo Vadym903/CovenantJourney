@@ -2,98 +2,110 @@ package com.example.covenant.journey.api.dto.user;
 
 import com.example.covenant.journey.api.dto.general.AbstractRequest;
 import com.example.covenant.journey.model.user.User;
+import com.example.covenant.journey.model.user.UserRole;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class UserRequest extends AbstractRequest<User> {
 
-    @NotBlank
-    @ApiModelProperty(notes = "", example = "Jonathan Josuke")
-    private String fullName;
+	@NotBlank
+	@ApiModelProperty(notes = "", example = "Jonathan Josuke")
+	private String fullName;
 
-    @Size(min = 3)
-    @NotBlank
-    @ApiModelProperty(notes = "", example = "jonathan_josuke")
-    private String login;
+	@Size(min = 3)
+	@NotBlank
+	@ApiModelProperty(notes = "", example = "jonathan_josuke")
+	private String login;
 
-    @NotBlank
-    @Size(min = 3)
-    @ApiModelProperty(notes = "", example = "pass")
-    private String password;
+	@NotBlank
+	@Size(min = 3)
+	@ApiModelProperty(notes = "", example = "pass")
+	private String password;
 
-    @Email
-    @NotBlank
-    @ApiModelProperty(notes = "", example = "joger@gmail.com")
-    private String email;
+	@Email
+	@NotBlank
+	@ApiModelProperty(notes = "", example = "joger@gmail.com")
+	private String email;
 
-    private Long photoId;
+	private Long photoId;
 
-    @ApiModelProperty(notes = "", example = "I'm Jonathan Josuke")
-    private String description;
+	@ApiModelProperty(notes = "", example = "I'm Jonathan Josuke")
+	private String description;
 
-    @Override
-    public User createEntity() {
-        return updateEntity(new User());
-    }
+	@ApiModelProperty(notes = "", example = "ROLE_USER")
+	private UserRole userRole;
 
-    @Override
-    public User updateEntity(User entity) {
-        entity.setFullName(this.fullName);
-        entity.setLogin(this.login);
-        entity.setPassword(this.password);
-        entity.setEmail(this.email);
-        entity.setDescription(this.description);
-        return entity;
-    }
+	@Override
+	public User createEntity() {
+		return updateEntity(new User());
+	}
 
-    public String getFullName() {
-        return fullName;
-    }
+	@Override
+	public User updateEntity(User entity) {
+		entity.setFullName(this.fullName);
+		entity.setLogin(this.login);
+		entity.setPassword(this.password);
+		entity.setEmail(this.email);
+		entity.setDescription(this.description);
+		entity.setRole(this.userRole);
+		return entity;
+	}
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
+	public String getFullName() {
+		return fullName;
+	}
 
-    public String getLogin() {
-        return login;
-    }
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+	public String getLogin() {
+		return login;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Long getPhotoId() {
-        return photoId;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setPhotoId(Long photoId) {
-        this.photoId = photoId;
-    }
+	public Long getPhotoId() {
+		return photoId;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setPhotoId(Long photoId) {
+		this.photoId = photoId;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
 }
