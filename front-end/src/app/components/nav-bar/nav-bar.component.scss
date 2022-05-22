@@ -32,9 +32,14 @@ section {
 	.right-container {
 		display: flex;
 		align-items: center;
+
 		.user-container {
 			font-size: 16px;
+			cursor: pointer;
+			color: black;
+			text-decoration: unset;
 		}
+
 		.actions-container {
 			margin-left: 10px;
 

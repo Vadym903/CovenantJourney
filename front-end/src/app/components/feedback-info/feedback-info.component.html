@@ -1,0 +1,21 @@
+<section *ngIf="_feedback">
+	<div class="marks">
+		<div class="mark-container">
+			<div class="mark-title">Cleanliness</div>
+			<ngx-material-rating [value]="_feedback.cleanlinessMark" [max]="ratingConfig.max" [readonly]="true"></ngx-material-rating>
+		</div>
+		<div class="mark-container">
+			<div class="mark-title">Location</div>
+			<ngx-material-rating [value]="_feedback.locationMark" [max]="ratingConfig.max" [readonly]="true"></ngx-material-rating>
+		</div>
+		<div class="mark-container">
+			<div class="mark-title">Communication</div>
+			<ngx-material-rating [value]="_feedback.communicationMark" [max]="ratingConfig.max" [readonly]="true"></ngx-material-rating>
+		</div>
+		<div class="mark-container">
+			<div class="mark-title">Service</div>
+			<ngx-material-rating [value]="_feedback.serviceMark" [max]="ratingConfig.max" [readonly]="true"></ngx-material-rating>
+		</div>
+	</div>
+	<div class="description" *ngIf="_feedback?.description" [innerHTML]="descriptionHtml"></div>
+</section>

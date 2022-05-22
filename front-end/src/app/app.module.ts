@@ -37,6 +37,8 @@ import { ApartmentInfoComponent } from './components/apartment-info/apartment-in
 import { ApartmentInfoCarouselComponent } from './components/apartment-info/apartment-info-carousel/apartment-info-carousel.component';
 import { ApartmentCommentsComponent } from './components/apartment-info/apartment-comments/apartment-comments.component';
 import { NgxMaterialRatingModule } from "ngx-material-rating";
+import { FeedbackInfoComponent } from './components/feedback-info/feedback-info.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
     declarations: [
@@ -60,7 +62,9 @@ import { NgxMaterialRatingModule } from "ngx-material-rating";
         CustomMapMarkerComponent,
         ApartmentInfoComponent,
         ApartmentInfoCarouselComponent,
-        ApartmentCommentsComponent
+        ApartmentCommentsComponent,
+        FeedbackInfoComponent,
+        UserInfoComponent
     ],
     imports: [
         BrowserModule,

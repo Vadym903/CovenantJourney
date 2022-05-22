@@ -13,8 +13,53 @@ section {
 		}
 
 		.create-feedback-form {
-			border: 1px solid #DDDDDD;
+			//border: 1px solid #DDDDDD;
 			padding: 5px;
+
+			.mark-container {
+				display: grid;
+				grid-template-columns: 110px 1fr;
+				grid-template-rows: 1fr;
+				align-items: center;
+				gap: 5px 0;
+				grid-template-areas: ". .";
+
+				&:not(:first-child) {
+					margin-top: 5px;
+				}
+			}
+
+			.description {
+				margin-top: 10px;
+			}
+
+			.action-buttons-container {
+				margin-top: 15px;
+				display: flex;
+				justify-content: flex-end;
+
+				button {
+					@include colorful-button(80, 30px);
+
+					& + button {
+						margin-left: 15px;
+					}
+				}
+			}
+		}
+	}
+
+	.all-feedbacks {
+		margin-top: 15px;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		align-items: center;
+		gap: 15px 10px;
+
+		.single-feedback {
+
 		}
 	}
 }

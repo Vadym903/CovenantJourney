@@ -34,7 +34,7 @@ public class FeedbackRequest extends AbstractRequest<Feedback> {
 		entity.setDescription(this.description);
 		entity.setCleanlinessMark(this.cleanlinessMark);
 		entity.setLocationMark(this.locationMark);
-		entity.setCleanlinessMark(this.communicationMark);
+		entity.setCommunicationMark(this.communicationMark);
 		entity.setServiceMark(this.serviceMark);
 		return entity;
 	}

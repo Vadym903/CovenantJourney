@@ -5,6 +5,7 @@ import { Feedback } from "../../../_models/feedback.model";
 import { Filter } from "../../../_models/filter-model";
 import { FilteringOperation } from "../../../shared/constants/filtering-operations.constants";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { finalize } from "rxjs";
 
 @Component({
 	selector: 'app-apartment-comments',
@@ -37,8 +38,34 @@ export class ApartmentCommentsComponent implements OnInit {
 
 	initFeedbackForm(): void {
 		this.feedbackForm = this.fb.group({
-			mark: this.fb.control('', Validators.required),
+			cleanlinessMark: this.fb.control(0, Validators.required),
+			locationMark: this.fb.control(0, Validators.required),
+			communicationMark: this.fb.control(0, Validators.required),
+			serviceMark: this.fb.control(0, Validators.required),
 			description: this.fb.control('', Validators.required)
 		});
+	}
+
+	updateMarkField(markValue, fieldName): void {
+		this.feedbackForm.get(fieldName).setValue(markValue);
+	}
+
+	removeFeedback(): void {
+		this.feedbackForm = null;
+	}
+
+	saveFeedback(): void {
+		const formValue = this.feedbackForm.value;
+		const feedback = new Feedback();
+		feedback.cleanlinessMark = formValue.cleanlinessMark;
+		feedback.locationMark = formValue.locationMark;
+		feedback.communicationMark = formValue.communicationMark;
+		feedback.serviceMark = formValue.serviceMark;
+		feedback.description = formValue.description;
+		feedback.apartmentId = this.apartment.id;
+
+		this.feedbackService.create$(feedback)
+			.pipe(finalize(() => this.feedbackForm = null))
+			.subscribe(() => this.initFeedbacks());
 	}
 }

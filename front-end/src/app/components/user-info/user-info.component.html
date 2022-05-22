@@ -1,0 +1,13 @@
+<section *ngIf="user">
+	<div class="left-container">
+		<div class="user-container">
+			<div class="user-image">
+				<img src="assets/images/user_pic-50x50.png" alt="owner-image">
+			</div>
+			<div class="user-name">{{user.fullName}}</div>
+		</div>
+	</div>
+	<div class="right-container">
+		<div class="description" *ngIf="user?.description" [innerHTML]="userDescriptionHtml"></div>
+	</div>
+</section>

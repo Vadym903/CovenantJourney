@@ -10,13 +10,13 @@
 	</div>
 
 	<div class="right-container">
-		<div class="user-container" *ngIf="user">
-			{{user.fullName}}
-		</div>
+		<a class="user-container" *ngIf="user" [routerLink]="['/user/' + user.id]">{{user.fullName}}</a>
 		<div class="actions-container">
 			<ng-container *ngIf="!user">
-				<button mat-raised-button class="landlord-registration" (click)="landlordRegistration()" >I'm a Landlord</button>
-				<button mat-raised-button class="default-button" (click)="openLoginPopup()" >Login</button>
+				<button mat-raised-button class="landlord-registration" (click)="landlordRegistration()">I'm a
+					Landlord
+				</button>
+				<button mat-raised-button class="default-button" (click)="openLoginPopup()">Login</button>
 			</ng-container>
 			<button mat-raised-button class="default-button" (click)="logOut()" *ngIf="user">Log out</button>
 		</div>

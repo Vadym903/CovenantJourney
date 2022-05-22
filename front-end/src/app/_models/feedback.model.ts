@@ -5,7 +5,10 @@ import { User } from "./user.model";
 export class Feedback extends AbstractModel {
 
 	constructor(public override id?: number,
-				public mark?: number,
+				public cleanlinessMark?: number,
+				public locationMark?: number,
+				public communicationMark?: number,
+				public serviceMark?: number,
 				public description?: string,
 				public apartment?: Apartment,
 				public user?: User,
@@ -16,10 +19,13 @@ export class Feedback extends AbstractModel {
 	static fromObject(object: Feedback): Feedback {
 		return new Feedback(
 			object.id,
-			object.mark,
+			object.cleanlinessMark,
+			object.locationMark,
+			object.communicationMark,
+			object.serviceMark,
 			object.description,
-			Apartment.fromObject(object.apartment),
-			User.fromObject(object.user),
+			object.apartment ? Apartment.fromObject(object.apartment) : undefined,
+			object.user ? User.fromObject(object.user) : undefined,
 			object.apartmentId
 		);
 	}

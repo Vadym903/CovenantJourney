@@ -2,9 +2,36 @@
 	<div class="feedback-creation-container">
 		<button class="create-feedback-button" *ngIf="!feedbackForm" (click)="initFeedbackForm()">Add new feedback
 		</button>
-		<div class="create-feedback-form" *ngIf="feedbackForm">
-			<ngx-material-rating [color]="'accent'" [(ngModel)]="ratingConfig.value" [max]="ratingConfig.max">
-			</ngx-material-rating>
+		<div class="create-feedback-form" *ngIf="feedbackForm" [formGroup]="feedbackForm">
+			<div class="mark-container">
+				<div class="mark-title">Cleanliness</div>
+				<ngx-material-rating [color]="'accent'" (change)="updateMarkField($event.value, 'cleanlinessMark')" [max]="ratingConfig.max"></ngx-material-rating>
+			</div>
+			<div class="mark-container">
+				<div class="mark-title">Location</div>
+				<ngx-material-rating [color]="'accent'" (change)="updateMarkField($event.value, 'locationMark')" [max]="ratingConfig.max"></ngx-material-rating>
+			</div>
+			<div class="mark-container">
+				<div class="mark-title">Communication</div>
+				<ngx-material-rating [color]="'accent'" (change)="updateMarkField($event.value, 'communicationMark')" [max]="ratingConfig.max"></ngx-material-rating>
+			</div>
+			<div class="mark-container">
+				<div class="mark-title">Service</div>
+				<ngx-material-rating [color]="'accent'" (change)="updateMarkField($event.value, 'serviceMark')" [max]="ratingConfig.max"></ngx-material-rating>
+			</div>
+
+			<div class="description">
+				<app-description-form [parentForm]="feedbackForm"></app-description-form>
+			</div>
+			<div class="action-buttons-container">
+				<button (click)="removeFeedback()">Cancel</button>
+				<button (click)="saveFeedback()" [disabled]="!feedbackForm.valid">Add feedback</button>
+			</div>
+		</div>
+	</div>
+	<div class="all-feedbacks">
+		<div *ngFor="let feedback of feedbacks" class="single-feedback">
+			<app-feedback-info [feedback]="feedback"></app-feedback-info>
 		</div>
 	</div>
 </section>
