@@ -15,7 +15,8 @@
 		<input formControlName="password" placeholder="password">
 	</form>
 
-	<button mat-raised-button class="log-in-button" (click)="login()">Log in</button>
+	<button mat-raised-button class="log-in-button" (click)="login()" *ngIf="isLoginMode">Log in</button>
+	<button mat-raised-button class="log-in-button" (click)="registerUser()" *ngIf="!isLoginMode">Sign up</button>
 </section>
 
 <ng-template #registration>

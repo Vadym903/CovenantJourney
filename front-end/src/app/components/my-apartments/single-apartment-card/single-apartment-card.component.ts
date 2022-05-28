@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Apartment } from "../../../_models/apartment.model";
 import { DomSanitizer } from "@angular/platform-browser";
 
@@ -17,6 +17,8 @@ export class SingleApartmentCardComponent implements OnInit {
         }
     }
 
+    @Output() editEmitter = new EventEmitter<Apartment>();
+
     mainImage;
     descriptionHtml;
     apartment: Apartment;
@@ -25,6 +27,10 @@ export class SingleApartmentCardComponent implements OnInit {
     }
 
     ngOnInit(): void {
+    }
+
+    edit(): void {
+        this.editEmitter.emit(this.apartment);
     }
 
 }

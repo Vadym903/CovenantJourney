@@ -13,6 +13,11 @@
 			<div class="images-container">
 				<app-modify-apartment-images [apartmentForm]="apartmentForm"></app-modify-apartment-images>
 			</div>
+
+			<div class="accommodations">
+				<p>Accommodations:</p>
+				<app-modify-accommodations [parentForm]="apartmentForm"></app-modify-accommodations>
+			</div>
 		</div>
 		<div class="right-container">
 			<app-apartment-map [form]="apartmentForm"></app-apartment-map>

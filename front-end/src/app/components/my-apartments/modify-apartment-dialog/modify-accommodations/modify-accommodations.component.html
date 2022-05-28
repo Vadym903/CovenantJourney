@@ -1,0 +1,13 @@
+<section *ngIf="accommodationsControl">
+	<div *ngFor="let accommodation of accommodations" class="accommodation">
+		<div class="icon">
+			<img src="assets/images/icons/{{accommodation}}.svg" alt="icon">
+		</div>
+		<div class="title">{{accommodation | titlecase | replace: '_' : ' '}}</div>
+		<div class="checkbox">
+			<mat-checkbox color="warn"
+						  (change)="onCheckboxChange($event.checked, accommodation)"
+						  [checked]="isSelected(accommodation)"></mat-checkbox>
+		</div>
+	</div>
+</section>

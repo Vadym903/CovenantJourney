@@ -4,6 +4,7 @@ import { AuthService } from "../../services/auth-service.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { AuthRequest } from "../../_models/auth-request.model";
 import { UserRole } from "../../_models/_enums/user-role.enum";
+import { UserService } from "../../services/user.service";
 
 @Component({
 	selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
 	constructor(private dialogRef: MatDialogRef<LoginComponent>,
 				@Inject(MAT_DIALOG_DATA) public data: any,
 				private authService: AuthService,
+				private userService: UserService,
 				private fb: FormBuilder) {
 	}
 
@@ -28,7 +30,6 @@ export class LoginComponent implements OnInit {
 	}
 
 	private initForm(): void {
-		console.log(this.data.isLandlord);
 		if (this.data.isLandlord) {
 			this.initRegistrationForm();
 			this.isLoginMode = false;
@@ -41,7 +42,6 @@ export class LoginComponent implements OnInit {
 	private initLoginForm() {
 		this.authForm = this.fb.group({
 			login: this.fb.control(''),
-
 			password: this.fb.control('')
 		});
 	}
@@ -64,9 +64,17 @@ export class LoginComponent implements OnInit {
 		this.authService.login(authRequest).subscribe(() => this.dialogRef.close());
 	}
 
+	registerUser(): void {
+		const formValue = this.registrationForm.value;
+		this.userService.create$(formValue).subscribe(() => {
+			this.switchMode(true);
+			this.authForm.get('login').setValue(formValue.login);
+			this.authForm.get('password').setValue(formValue.password);
+		});
+	}
+
 	switchMode(isLoginMode: boolean): void {
 		this.isLoginMode = isLoginMode;
-
 		if (isLoginMode) {
 			this.initLoginForm();
 		} else {

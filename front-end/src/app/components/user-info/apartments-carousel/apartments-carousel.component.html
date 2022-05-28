@@ -1,0 +1,14 @@
+<section>
+	<owl-carousel-o [options]="customOptions" class="simple-carousel" #carousel>
+		<ng-container *ngFor="let apartment of _apartments; let index = index">
+			<ng-template carouselSlide [id]="apartment.id + ''" [width]="300">
+				<app-small-apartment-info [_apartment]="apartment"
+										  [isNeedToActiveArrows]="false"></app-small-apartment-info>
+			</ng-template>
+		</ng-container>
+	</owl-carousel-o>
+	<div class="arrows-container">
+		<button class="arrow" (click)="carousel.prev(); $event.stopPropagation()"> <</button>
+		<button class="arrow" (click)="carousel.next(); $event.stopPropagation()"> ></button>
+	</div>
+</section>

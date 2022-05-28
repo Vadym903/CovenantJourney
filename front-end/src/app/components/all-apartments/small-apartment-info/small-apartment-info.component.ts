@@ -13,6 +13,7 @@ export class SmallApartmentInfoComponent implements OnInit {
 		this.apartment = apartment;
 	};
 
+	@Input() isNeedToActiveArrows = true;
 	apartment: Apartment;
 
 	constructor(private router: Router) {

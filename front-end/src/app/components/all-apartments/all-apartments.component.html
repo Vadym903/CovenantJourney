@@ -1,10 +1,24 @@
+<link rel="stylesheet" href="all-apartments.component.scss">
 <section>
 	<div class="filters-section">
-		filters
+		<div class="input-filters">
+			<input (input)="onChangeNameFilter($event.target['value'], 'nameFilter')" placeholder="Name">
+			<input (input)="onChangeNameFilter($event.target['value'], 'addressFilter')" placeholder="Address">
+		</div>
+		<div class="accommodations-container">
+			<div class="accommodation"
+				 *ngFor="let accommodation of accommodations"
+				 [ngClass]="{'active': activeAccommodations.includes(accommodation)}"
+				 (click)="handleAccommodationClick(accommodation)">
+				{{accommodation | titlecase | replace: '_' : ' '}}
+			</div>
+		</div>
 	</div>
 	<div class="apartments-container">
 		<app-small-apartment-info *ngFor="let apartment of apartments"
 								  [_apartment]="apartment"></app-small-apartment-info>
 	</div>
-	<div class="open-map-container" (click)="openMap()">Open Map <mat-icon>map</mat-icon></div>
+	<div class="open-map-container" (click)="openMap()">Open Map
+		<mat-icon>map</mat-icon>
+	</div>
 </section>

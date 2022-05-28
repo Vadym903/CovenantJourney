@@ -12,9 +12,13 @@ section {
 
 	.logo-container {
 		height: 100%;
+		display: flex;
+		align-items: center;
 
-		img {
-			height: 100%;
+		a {
+			font-size: 24px;
+			color: #e87da1;
+			text-decoration: none;
 		}
 	}
 
@@ -22,10 +26,6 @@ section {
 		a {
 			color: black;
 			text-decoration: unset;
-		}
-
-		.active-link {
-
 		}
 	}
 
@@ -54,4 +54,8 @@ section {
 		}
 	}
 
+}
+
+.active-link {
+	border-bottom: 3px solid #e31c5f;
 }

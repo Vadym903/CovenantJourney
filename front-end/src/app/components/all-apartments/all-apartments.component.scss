@@ -6,7 +6,43 @@ section {
 	.filters-section {
 		@include configure-indents();
 		margin-top: 27px;
-		height: 40px;
+
+		.input-filters {
+
+			input {
+				height: 35px;
+				width: 300px;
+				font-size: 18px;
+				border-radius: 10px;
+				border: 1px solid #DDDDDD;
+				padding: 0 10px;
+
+				& + input {
+					margin-left: 20px;
+				}
+			}
+		}
+
+		.accommodations-container {
+			display: flex;
+			gap: 10px 15px;
+			flex-wrap: wrap;
+			margin-top: 15px;
+
+			.accommodation {
+				padding: 5px 10px;
+				background-color: #DDDDDD;
+				border-radius: 18px;
+				height: fit-content;
+				white-space: nowrap;
+				cursor: pointer;
+			}
+
+			.active {
+				background-color: #e87da1;
+				color: white;
+			}
+		}
 	}
 
 	.apartments-container {

@@ -39,6 +39,10 @@ import { ApartmentCommentsComponent } from './components/apartment-info/apartmen
 import { NgxMaterialRatingModule } from "ngx-material-rating";
 import { FeedbackInfoComponent } from './components/feedback-info/feedback-info.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { ApartmentsCarouselComponent } from './components/user-info/apartments-carousel/apartments-carousel.component';
+import { UserInfoFeedbacksComponent } from './components/user-info/user-info-feedbacks/user-info-feedbacks.component';
+import { ModifyAccommodationsComponent } from "./components/my-apartments/modify-apartment-dialog/modify-accommodations/modify-accommodations.component";
+import { ReplacePipe } from "./pipes/replace.pipe";
 
 @NgModule({
     declarations: [
@@ -64,7 +68,11 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
         ApartmentInfoCarouselComponent,
         ApartmentCommentsComponent,
         FeedbackInfoComponent,
-        UserInfoComponent
+        UserInfoComponent,
+        ApartmentsCarouselComponent,
+        UserInfoFeedbacksComponent,
+        ModifyAccommodationsComponent,
+        ReplacePipe
     ],
     imports: [
         BrowserModule,

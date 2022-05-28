@@ -29,7 +29,7 @@ export class AuthService {
 
     public getCurrentUser(): User {
         if (!this.currentUserSubject.value) {
-            const user = this.cookieService.get('user');
+            const user = localStorage.getItem('user');
             if (user) {
                 this.currentUserSubject.next(User.fromObject(JSON.parse(user) as User));
             }
@@ -51,12 +51,15 @@ export class AuthService {
         sessionStorage.clear();
         this.cookieService.deleteAll();
         this.currentUserSubject.next(null);
+        localStorage.removeItem('user');
     }
 
     private onLogin(response: AuthResponse): AuthResponse {
+        const user = response.user;
+        user.description = "";
         this.cookieService.set('userToken', response.token);
-        this.cookieService.set('user', JSON.stringify(response.user));
-        this.currentUserSubject.next(response.user);
+        localStorage.setItem('user', JSON.stringify(user));
+        this.currentUserSubject.next(user);
         return response;
     }
 

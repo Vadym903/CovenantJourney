@@ -6,7 +6,7 @@
 			</ng-template>
 		</ng-container>
 	</owl-carousel-o>
-	<div class="arrows-container">
+	<div class="arrows-container" *ngIf="isNeedToActiveArrows">
 		<button class="arrow" (click)="carousel.prev(); $event.stopPropagation()"> < </button>
 		<button class="arrow" (click)="carousel.next(); $event.stopPropagation()"> > </button>
 	</div>

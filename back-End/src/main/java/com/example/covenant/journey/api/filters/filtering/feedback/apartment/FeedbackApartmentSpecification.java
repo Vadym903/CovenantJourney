@@ -1,4 +1,4 @@
-package com.example.covenant.journey.api.filters.filtering.feedback;
+package com.example.covenant.journey.api.filters.filtering.feedback.apartment;
 
 import com.example.covenant.journey.api.filters.models.FilteringType;
 import com.example.covenant.journey.api.filters.models.SearchCriteria;

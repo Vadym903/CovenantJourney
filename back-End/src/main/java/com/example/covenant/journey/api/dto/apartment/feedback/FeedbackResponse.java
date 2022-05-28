@@ -36,6 +36,7 @@ public class FeedbackResponse extends AbstractResponse {
 		this.communicationMark = feedback.getCommunicationMark();
 		this.serviceMark = feedback.getServiceMark();
 		this.description = feedback.getDescription();
+		this.apartment = new ApartmentResponse(feedback.getApartment());
 		this.user = new UserResponse(feedback.getUser());
 	}
 

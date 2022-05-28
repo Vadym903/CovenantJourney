@@ -1,4 +1,22 @@
 package com.example.covenant.journey.model.apartment;
 
 public enum ApartmentAccommodations {
+	POOL,
+	HOT_TUB,
+	PATIO,
+	BBQ_GRILL,
+	FIRE_PIT,
+	POOL_TABLE,
+	INDOOR_FIREPLACE,
+	OUTDOOR_DINING_AREA,
+	EXERCISE_EQUIPMENT,
+	WIFI,
+	TV,
+	KITCHEN,
+	WASHER,
+	FREE_PARKING,
+	AIR_CONDITIONING,
+	SMOKE_ALARM,
+	FIRST_AID_KIT,
+	FIRE_EXTINGUISHER
 }

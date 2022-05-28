@@ -29,9 +29,10 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     handleErrors(error: any): Observable<never> {
-        if (error.status === 0) {
-            this.authService.logOut();
-        }
+        console.log(error.status);
+        // if (error.status === 0) {
+        //     this.authService.logOut();
+        // }
         return throwError(error);
     }
 

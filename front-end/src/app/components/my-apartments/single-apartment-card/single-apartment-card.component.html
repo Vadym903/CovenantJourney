@@ -14,16 +14,16 @@
 				<div class="mark-container">
 					<div class="mark">
 						<mat-icon>star</mat-icon>
-						<span>4.9</span>
+						<span>{{apartment.averageMark | number : '1.2-2'}}</span>
 					</div>
-					<div class="feedbacks">239 marks</div>
+					<div class="feedbacks">{{apartment.countOfFeedbacks}} marks</div>
 				</div>
 			</div>
 		</div>
 		<div class="description" *ngIf="apartment?.description" [innerHTML]="descriptionHtml"></div>
 		<div class="actions-container">
 			<button>Archive</button>
-			<button>Edit</button>
+			<button (click)="edit()">Edit</button>
 		</div>
 	</div>
 </section>

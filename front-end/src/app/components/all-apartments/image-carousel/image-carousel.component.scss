@@ -9,10 +9,10 @@ section {
 	.arrows-container {
 		display: none;
 		position: absolute;
-		width: 100%;
 		justify-content: space-between;
 		top: 150px;
 		z-index: 1;
+		width: 100%;
 
 		button {
 			cursor: pointer;

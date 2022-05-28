@@ -13,6 +13,8 @@ export class ImageCarouselComponent {
 		this.imageUrls = images.map(image => image.imageFullPath);
 	}
 
+	@Input() isNeedToActiveArrows = true;
+
 	imageUrls = [];
 
 	customOptions: OwlOptions = {

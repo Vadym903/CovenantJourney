@@ -1,0 +1,41 @@
+<section>
+	<div *ngFor="let feedback of _feedbacks" class="single-feedback">
+		<div class="top-container">
+			<div class="marks">
+				<div class="mark-container">
+					<div class="mark-title">Cleanliness</div>
+					<ngx-material-rating [value]="feedback.cleanlinessMark" [max]="5"
+										 [readonly]="true"></ngx-material-rating>
+				</div>
+				<div class="mark-container">
+					<div class="mark-title">Location</div>
+					<ngx-material-rating [value]="feedback.locationMark" [max]="5" [readonly]="true"></ngx-material-rating>
+				</div>
+				<div class="mark-container">
+					<div class="mark-title">Communication</div>
+					<ngx-material-rating [value]="feedback.communicationMark" [max]="5"
+										 [readonly]="true"></ngx-material-rating>
+				</div>
+				<div class="mark-container">
+					<div class="mark-title">Service</div>
+					<ngx-material-rating [value]="feedback.serviceMark" [max]="5" [readonly]="true"></ngx-material-rating>
+				</div>
+			</div>
+			<div class="apartment-container">
+				<div class="image-container">
+					<img [src]="feedback.apartment?.images[0].imageFullPath">
+				</div>
+			</div>
+		</div>
+
+		<div class="comment-owner-container">
+			<div class="user-image">
+				<img src="assets/images/user_pic-50x50.png" alt="owner-image">
+			</div>
+			<div class="user-name">
+				<span>{{feedback.user.fullName}}</span>
+			</div>
+		</div>
+		<div class="description" *ngIf="feedback?.description" [innerHTML]="feedback?.descriptionHtml"></div>
+	</div>
+</section>

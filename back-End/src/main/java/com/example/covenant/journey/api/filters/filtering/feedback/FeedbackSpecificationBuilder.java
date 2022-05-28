@@ -1,5 +1,7 @@
 package com.example.covenant.journey.api.filters.filtering.feedback;
 
+import com.example.covenant.journey.api.filters.filtering.feedback.apartment.FeedbackApartmentSpecificationBuilder;
+import com.example.covenant.journey.api.filters.filtering.feedback.owner.FeedbackOwnerSpecificationBuilder;
 import com.example.covenant.journey.api.filters.models.FilterProperty;
 import com.example.covenant.journey.api.filters.models.FilteringSpecificationsBuilder;
 import com.example.covenant.journey.model.apartment.feedback.Feedback;
@@ -13,7 +15,9 @@ public class FeedbackSpecificationBuilder implements FilteringSpecificationsBuil
 
 	public static final List<FilterProperty<Feedback>> FILTERABLE_PROPERTIES = Arrays.asList(
 			new FilterProperty<>("apartment", Long.class,
-					FeedbackApartmentSpecificationBuilder.SUPPORTED_OPERATORS, new FeedbackApartmentSpecificationBuilder())
+					FeedbackApartmentSpecificationBuilder.SUPPORTED_OPERATORS, new FeedbackApartmentSpecificationBuilder()),
+			new FilterProperty<>("owner", Long.class,
+					FeedbackOwnerSpecificationBuilder.SUPPORTED_OPERATORS, new FeedbackOwnerSpecificationBuilder())
 	);
 
 	@Override

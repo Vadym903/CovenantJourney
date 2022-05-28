@@ -1,8 +1,6 @@
 <section>
 	<div class="logo-container">
-		<a [routerLink]="['/all-apartments']">
-			<img src="assets/images/icon.png" alt="logo">
-		</a>
+		<a [routerLink]="['/all-apartments']">Covenant Journey</a>
 	</div>
 
 	<div class="middle-container">
@@ -10,7 +8,7 @@
 	</div>
 
 	<div class="right-container">
-		<a class="user-container" *ngIf="user" [routerLink]="['/user/' + user.id]">{{user.fullName}}</a>
+		<a class="user-container" *ngIf="user" [routerLink]="['/user/' + user.id]" routerLinkActive="active-link">{{user.fullName}}</a>
 		<div class="actions-container">
 			<ng-container *ngIf="!user">
 				<button mat-raised-button class="landlord-registration" (click)="landlordRegistration()">I'm a

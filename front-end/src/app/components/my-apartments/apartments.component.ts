@@ -22,7 +22,19 @@ export class ApartmentsComponent implements OnInit {
     }
 
     openCreateWindow(): void {
-        this.dialog.open(ModifyApartmentDialogComponent, {panelClass: 'modify-apartment-dialog'})
+        this.openPopup(null);
+    }
+
+    openEditWindow(apartment: Apartment): void {
+        this.openPopup(apartment);
+    }
+
+    private openPopup(apartment: Apartment): void {
+        this.dialog.open(ModifyApartmentDialogComponent,
+            {
+                panelClass: 'modify-apartment-dialog',
+                data: {apartment: apartment}
+            })
             .afterClosed().subscribe(isNeedToUpdatePage => isNeedToUpdatePage ? this.initPage() : EMPTY);
     }
 

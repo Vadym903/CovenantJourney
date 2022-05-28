@@ -16,7 +16,7 @@
 		</div>
 		<div class="apartments-container">
 			<div class="single-apartment" *ngFor="let apartment of apartments">
-				<app-single-apartment-card [_apartment]="apartment"></app-single-apartment-card>
+				<app-single-apartment-card [_apartment]="apartment" (editEmitter)="openEditWindow($event)"></app-single-apartment-card>
 			</div>
 		</div>
 	</div>

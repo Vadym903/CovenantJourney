@@ -12,7 +12,8 @@ export class Feedback extends AbstractModel {
 				public description?: string,
 				public apartment?: Apartment,
 				public user?: User,
-				public apartmentId?: number) {
+				public apartmentId?: number,
+				public descriptionHtml?: any) {
 		super(id);
 	}
 

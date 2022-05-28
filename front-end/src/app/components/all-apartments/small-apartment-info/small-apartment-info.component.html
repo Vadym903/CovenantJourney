@@ -1,12 +1,12 @@
 <section *ngIf="apartment">
 	<div class="image-container" (click)="openInfoPage()">
-		<app-image-carousel [images]="apartment.images"></app-image-carousel>
+		<app-image-carousel [images]="apartment.images" [isNeedToActiveArrows]="isNeedToActiveArrows"></app-image-carousel>
 	</div>
 	<div class="header-row">
 		<div class="title">{{apartment.name}}</div>
 		<div class="mark">
 			<mat-icon>star</mat-icon>
-			<span>4.9</span>
+			<span>{{apartment.averageMark | number : '1.2-2'}}</span>
 		</div>
 	</div>
 	<div class="location-row">{{apartment.geoData.addressName}}</div>

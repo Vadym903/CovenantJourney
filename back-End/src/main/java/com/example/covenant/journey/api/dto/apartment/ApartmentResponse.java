@@ -39,6 +39,9 @@ public class ApartmentResponse extends AbstractResponse {
 	@ApiModelProperty(notes = "Apartment's average mark")
 	private float averageMark;
 
+	@ApiModelProperty(notes = "Apartment's count of feedbacks")
+	private int countOfFeedbacks;
+
 	public ApartmentResponse(Apartment apartment) {
 		super(apartment);
 		this.name = apartment.getName();
@@ -57,14 +60,24 @@ public class ApartmentResponse extends AbstractResponse {
 
 		if (!apartment.getFeedbacks().isEmpty()) {
 			int feedbacksCount = apartment.getFeedbacks().size();
-			this.averageMark = (float) apartment.getFeedbacks()
+			this.averageMark = apartment.getFeedbacks()
 					.stream()
-					.map(Feedback::getCleanlinessMark)
-					.mapToInt(Short::shortValue)
-					.sum() / feedbacksCount;
+					.map(this::getAverageMarkOfOneFeedback)
+					.reduce(0.0, Double::sum).floatValue()
+					/ feedbacksCount;
+
+			this.countOfFeedbacks = apartment.getFeedbacks().size();
 		}
 	}
 
+	private double getAverageMarkOfOneFeedback(Feedback feedback) {
+		double sumOfAllMarks = 0.0;
+		sumOfAllMarks += feedback.getCleanlinessMark();
+		sumOfAllMarks += feedback.getCommunicationMark();
+		sumOfAllMarks += feedback.getServiceMark();
+		sumOfAllMarks += feedback.getLocationMark();
+		return sumOfAllMarks / 4;
+	}
 
 
 	public List<ImageResponse> getImages() {
@@ -133,5 +146,13 @@ public class ApartmentResponse extends AbstractResponse {
 
 	public void setAverageMark(float averageMark) {
 		this.averageMark = averageMark;
+	}
+
+	public int getCountOfFeedbacks() {
+		return countOfFeedbacks;
+	}
+
+	public void setCountOfFeedbacks(int countOfFeedbacks) {
+		this.countOfFeedbacks = countOfFeedbacks;
 	}
 }

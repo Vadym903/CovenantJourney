@@ -8,6 +8,14 @@
 	<div class="main-container">
 		<div class="left-container">
 			<div class="description" *ngIf="apartment?.description" [innerHTML]="apartmentDescriptionHtml"></div>
+			<div class="accommodations" *ngIf="apartment?.accommodations.length > 0">
+				<div class="single-accommodation" *ngFor="let accommodation of apartment?.accommodations">
+					<div class="icon">
+						<img src="assets/images/icons/{{accommodation}}.svg" alt="icon">
+					</div>
+					<div class="title">{{accommodation | titlecase | replace: '_' : ' '}}</div>
+				</div>
+			</div>
 		</div>
 		<div class="right-container">
 			<div class="owner-block">
@@ -19,6 +27,7 @@
 				</div>
 				<div class="divider"></div>
 				<div class="description" *ngIf="apartment?.user?.description" [innerHTML]="userDescriptionHtml"></div>
+				<a [href]="'/user/' + apartment.user.id" class="more">Learn more...</a>
 			</div>
 		</div>
 	</div>

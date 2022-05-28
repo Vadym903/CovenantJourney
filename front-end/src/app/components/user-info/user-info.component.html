@@ -1,13 +1,34 @@
 <section *ngIf="user">
-	<div class="left-container">
-		<div class="user-container">
-			<div class="user-image">
-				<img src="assets/images/user_pic-50x50.png" alt="owner-image">
+	<div class="action-buttons">
+		<button (click)="editMode()" *ngIf="!isEdit">Edit</button>
+		<button (click)="cancel()" *ngIf="isEdit">Cancel</button>
+		<button (click)="save()" *ngIf="isEdit">Save</button>
+	</div>
+	<div class="main-container" [formGroup]="userForm">
+		<div class="left-container">
+			<div class="user-container">
+				<div class="user-image">
+					<img src="assets/images/user_pic-50x50.png" alt="owner-image">
+				</div>
+				<div class="user-name">
+					<span *ngIf="!isEdit">{{user.fullName}}</span>
+					<input *ngIf="isEdit" formControlName="fullName" required>
+				</div>
+				<div class="feedbacks-count">
+					Feedbacks - {{feedbacks.length}}
+				</div>
 			</div>
-			<div class="user-name">{{user.fullName}}</div>
+		</div>
+		<div class="right-container">
+			<div class="description" *ngIf="user?.description && !isEdit" [innerHTML]="userDescriptionHtml"></div>
+			<app-description-form *ngIf="isEdit" [parentForm]="userForm"></app-description-form>
 		</div>
 	</div>
-	<div class="right-container">
-		<div class="description" *ngIf="user?.description" [innerHTML]="userDescriptionHtml"></div>
+	<div class="apartments" *ngIf="apartments.length > 0">
+		<app-apartments-carousel [apartments]="apartments"></app-apartments-carousel>
+	</div>
+
+	<div class="feedbacks" *ngIf="feedbacks.length > 0">
+		<app-user-info-feedbacks [feedbacks]="feedbacks"></app-user-info-feedbacks>
 	</div>
 </section>
