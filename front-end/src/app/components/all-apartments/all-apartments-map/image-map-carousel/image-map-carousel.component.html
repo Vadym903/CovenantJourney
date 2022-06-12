@@ -1,0 +1,13 @@
+<section>
+	<owl-carousel-o [options]="customOptions" class="simple-carousel" #carousel>
+		<ng-container *ngFor="let imagePath of imageUrls; let index = index">
+			<ng-template carouselSlide [id]="imagePath" [width]="150" height="150px">
+				<img [src]="imagePath" alt="carousel image">
+			</ng-template>
+		</ng-container>
+	</owl-carousel-o>
+	<div class="arrows-container" *ngIf="isNeedToActiveArrows">
+		<button class="arrow" (click)="carousel.prev(); $event.stopPropagation()"> < </button>
+		<button class="arrow" (click)="carousel.next(); $event.stopPropagation()"> > </button>
+	</div>
+</section>

@@ -1,5 +1,5 @@
 <section *ngIf="user">
-	<div class="action-buttons">
+	<div class="action-buttons" *ngIf="isOwner">
 		<button (click)="editMode()" *ngIf="!isEdit">Edit</button>
 		<button (click)="cancel()" *ngIf="isEdit">Cancel</button>
 		<button (click)="save()" *ngIf="isEdit">Save</button>

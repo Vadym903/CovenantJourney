@@ -1,7 +1,6 @@
 package com.example.covenant.journey.services.user;
 
 import com.example.covenant.journey.model.user.User;
-import com.example.covenant.journey.model.user.UserRole;
 import com.example.covenant.journey.repositories.BaseRepository;
 import com.example.covenant.journey.repositories.user.UserRepository;
 import com.example.covenant.journey.services.AbstractService;
@@ -25,9 +24,7 @@ public class UserService extends AbstractService<User> {
 
     @Override
     public User create(User entity) {
-        entity.setRole(UserRole.ROLE_USER);
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));
-
         return super.create(entity);
     }
 

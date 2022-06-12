@@ -1,3 +1,16 @@
 <section *ngIf="_apartment">
-	<app-image-carousel [images]="_apartment.images"></app-image-carousel>
+	<div class="top-container">
+		<div class="left-container">
+			<app-image-map-carousel [images]="_apartment.images"></app-image-map-carousel>
+		</div>
+
+		<div class="right-container">
+			<div class="mark">
+				<mat-icon>star</mat-icon>
+				<span>{{_apartment.averageMark | number : '1.2-2'}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="apartment-title">{{_apartment.name}}</div>
+	<div class="apartment-title">{{_apartment.geoData.addressName}}</div>
 </section>

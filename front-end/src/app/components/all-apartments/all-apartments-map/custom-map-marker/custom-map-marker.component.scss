@@ -1,0 +1,33 @@
+section {
+
+	.top-container {
+		display: flex;
+
+		.left-container {
+			width: 150px;
+		}
+
+		.right-container {
+			width: 100%;
+
+			.mark {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				mat-icon {
+					filter: invert(36%) sepia(90%) saturate(2689%) hue-rotate(327deg) brightness(98%) contrast(107%);
+				}
+			}
+		}
+	}
+
+	.apartment-title {
+		width: 100%;
+		margin-top: 5px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		margin-left: 5px;
+	}
+}

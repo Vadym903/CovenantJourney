@@ -96,8 +96,9 @@ public abstract class AbstractController<
 		return convertEntityToResponse(entity, ControllerUtil.parseExpandFields(expand));
 	}
 
+	@DeleteMapping(path = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@DeleteMapping(value = "/{id}")
 	public void delete(@PathVariable Long id) {
 		ControllerUtil.getOrNotFound(service.getOne(id));
 		service.delete(id);

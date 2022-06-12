@@ -17,8 +17,20 @@ section {
 		text-decoration: underline;
 	}
 
+	.apartment-type {
+		margin-top: 13px;
+		font-size: 16px;
+		background-color: #e87da1;
+		width: fit-content;
+		color: white;
+		border-top-right-radius: 30px;
+		border-top-left-radius: 30px;
+		padding: 3px 15px;
+		margin-left: 15px;
+	}
+
 	.carousel {
-		margin-top: 20px;
+		//margin-top: 20px;
 	}
 
 	.main-container {

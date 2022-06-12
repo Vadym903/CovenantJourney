@@ -3,10 +3,9 @@
 		<a [routerLink]="['/all-apartments']">Covenant Journey</a>
 	</div>
 
-	<div class="middle-container">
+	<div class="middle-container" *ngIf="user && user.role == 'ROLE_MANAGER'">
 		<a [routerLink]="['/my-apartments']" routerLinkActive="active-link">My Apartments</a>
 	</div>
-
 	<div class="right-container">
 		<a class="user-container" *ngIf="user" [routerLink]="['/user/' + user.id]" routerLinkActive="active-link">{{user.fullName}}</a>
 		<div class="actions-container">

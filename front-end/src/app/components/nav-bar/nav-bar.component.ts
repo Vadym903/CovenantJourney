@@ -19,6 +19,7 @@ export class NavBarComponent implements OnInit {
 	ngOnInit(): void {
 		this.user = this.authService.getCurrentUser();
 		this.authService.currentUserSubject.subscribe(user => this.user = user);
+		console.log(this.user);
 	}
 
 	openLoginPopup(): void {

@@ -4,6 +4,9 @@ import { MatDialog } from "@angular/material/dialog";
 import { ModifyApartmentDialogComponent } from "./modify-apartment-dialog/modify-apartment-dialog.component";
 import { Apartment } from "../../_models/apartment.model";
 import { EMPTY } from "rxjs";
+import { Filter } from "../../_models/filter-model";
+import { FilteringOperation } from "../../shared/constants/filtering-operations.constants";
+import { AuthService } from "../../services/auth-service.service";
 
 @Component({
     selector: 'app-apartments',
@@ -14,7 +17,9 @@ export class ApartmentsComponent implements OnInit {
 
     apartments: Apartment[] = [];
 
-    constructor(private apartmentService: ApartmentService, private dialog: MatDialog) {
+    constructor(private apartmentService: ApartmentService,
+                private authService: AuthService,
+                private dialog: MatDialog) {
     }
 
     ngOnInit(): void {
@@ -39,7 +44,9 @@ export class ApartmentsComponent implements OnInit {
     }
 
     private initPage(): void {
-        this.apartmentService.getPage$().subscribe(page => this.apartments = page.items);
+        const filter = new Filter("owner", FilteringOperation.EQUAL, this.authService.getCurrentUser().id + '');
+        this.apartmentService.getPage$(0, 200, [], [filter])
+            .subscribe(page => this.apartments = page.items);
     }
 
 }

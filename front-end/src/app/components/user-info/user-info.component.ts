@@ -10,6 +10,7 @@ import { Feedback } from "../../_models/feedback.model";
 import { FeedbackService } from "../../services/feedback.service";
 import { Filter } from "../../_models/filter-model";
 import { FilteringOperation } from "../../shared/constants/filtering-operations.constants";
+import { AuthService } from "../../services/auth-service.service";
 
 @Component({
 	selector: 'app-user-info',
@@ -19,6 +20,7 @@ import { FilteringOperation } from "../../shared/constants/filtering-operations.
 export class UserInfoComponent implements OnInit {
 
 	user: User;
+	isOwner = false;
 	userDescriptionHtml;
 	isEdit = false;
 	userForm: FormGroup = new FormGroup({});
@@ -27,6 +29,7 @@ export class UserInfoComponent implements OnInit {
 
 	constructor(private activatedRoute: ActivatedRoute,
 				private userService: UserService,
+				private authService: AuthService,
 				private apartmentService: ApartmentService,
 				private feedbackService: FeedbackService,
 				private fb: FormBuilder,
@@ -38,6 +41,7 @@ export class UserInfoComponent implements OnInit {
 		this.userService.getById$(userId).subscribe(user => {
 			this.user = user;
 			this.userDescriptionHtml = this.sanitizer.bypassSecurityTrustHtml(user.description);
+			this.isOwner = user.id == this.authService.getCurrentUser().id;
 		});
 
 		const filter = new Filter("owner", FilteringOperation.EQUAL, userId + '');

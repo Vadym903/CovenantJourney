@@ -43,6 +43,7 @@ import { ApartmentsCarouselComponent } from './components/user-info/apartments-c
 import { UserInfoFeedbacksComponent } from './components/user-info/user-info-feedbacks/user-info-feedbacks.component';
 import { ModifyAccommodationsComponent } from "./components/my-apartments/modify-apartment-dialog/modify-accommodations/modify-accommodations.component";
 import { ReplacePipe } from "./pipes/replace.pipe";
+import { ImageMapCarouselComponent } from "./components/all-apartments/all-apartments-map/image-map-carousel/image-map-carousel.component";
 
 @NgModule({
     declarations: [
@@ -72,7 +73,8 @@ import { ReplacePipe } from "./pipes/replace.pipe";
         ApartmentsCarouselComponent,
         UserInfoFeedbacksComponent,
         ModifyAccommodationsComponent,
-        ReplacePipe
+        ReplacePipe,
+        ImageMapCarouselComponent
     ],
     imports: [
         BrowserModule,

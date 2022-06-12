@@ -22,7 +22,7 @@
 		</div>
 		<div class="description" *ngIf="apartment?.description" [innerHTML]="descriptionHtml"></div>
 		<div class="actions-container">
-			<button>Archive</button>
+			<button (click)="delete()">Archive</button>
 			<button (click)="edit()">Edit</button>
 		</div>
 	</div>

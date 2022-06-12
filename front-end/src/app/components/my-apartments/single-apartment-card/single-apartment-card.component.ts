@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Apartment } from "../../../_models/apartment.model";
 import { DomSanitizer } from "@angular/platform-browser";
+import { ApartmentService } from "../../../services/apartment.service";
 
 @Component({
     selector: 'app-single-apartment-card',
@@ -23,7 +24,7 @@ export class SingleApartmentCardComponent implements OnInit {
     descriptionHtml;
     apartment: Apartment;
 
-    constructor(private sanitizer: DomSanitizer) {
+    constructor(private sanitizer: DomSanitizer, private apartmentService: ApartmentService) {
     }
 
     ngOnInit(): void {
@@ -31,6 +32,10 @@ export class SingleApartmentCardComponent implements OnInit {
 
     edit(): void {
         this.editEmitter.emit(this.apartment);
+    }
+
+    delete(): void {
+        this.apartmentService.delete$(this.apartment.id).subscribe();
     }
 
 }

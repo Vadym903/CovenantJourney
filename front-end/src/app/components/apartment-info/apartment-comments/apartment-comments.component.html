@@ -1,5 +1,5 @@
 <section>
-	<div class="feedback-creation-container">
+	<div class="feedback-creation-container" *ngIf="currentUser">
 		<button class="create-feedback-button" *ngIf="!feedbackForm" (click)="initFeedbackForm()">Add new feedback
 		</button>
 		<div class="create-feedback-form" *ngIf="feedbackForm" [formGroup]="feedbackForm">

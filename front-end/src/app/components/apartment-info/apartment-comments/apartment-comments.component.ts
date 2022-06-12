@@ -6,6 +6,8 @@ import { Filter } from "../../../_models/filter-model";
 import { FilteringOperation } from "../../../shared/constants/filtering-operations.constants";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { finalize } from "rxjs";
+import { User } from "../../../_models/user.model";
+import { AuthService } from "../../../services/auth-service.service";
 
 @Component({
 	selector: 'app-apartment-comments',
@@ -22,8 +24,11 @@ export class ApartmentCommentsComponent implements OnInit {
 		max: 5,
 		color: "accent"
 	};
+	currentUser: User;
 
-	constructor(private feedbackService: FeedbackService, private fb: FormBuilder) {
+	constructor(private feedbackService: FeedbackService,
+				private fb: FormBuilder,
+				private authService: AuthService) {
 	}
 
 	ngOnInit(): void {
@@ -34,6 +39,7 @@ export class ApartmentCommentsComponent implements OnInit {
 		const filter = new Filter('apartment', FilteringOperation.EQUAL, this.apartment.id + '');
 		this.feedbackService.getPage$(0, 100, [], [filter])
 			.subscribe(page => this.feedbacks = page.items);
+		this.currentUser = this.authService.getCurrentUser();
 	}
 
 	initFeedbackForm(): void {
