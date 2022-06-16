@@ -49,7 +49,6 @@ export class AuthService {
     public logOut(): void {
         this.router.navigateByUrl('/');
         sessionStorage.clear();
-        this.cookieService.deleteAll();
         this.currentUserSubject.next(null);
         localStorage.removeItem('user');
     }
@@ -57,7 +56,7 @@ export class AuthService {
     private onLogin(response: AuthResponse): AuthResponse {
         const user = response.user;
         user.description = "";
-        this.cookieService.set('userToken', response.token);
+        sessionStorage.setItem('userToken', response.token);
         localStorage.setItem('user', JSON.stringify(user));
         this.currentUserSubject.next(user);
         return response;

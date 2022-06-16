@@ -3,18 +3,16 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { AuthService } from "../services/auth-service.service";
-import { CookieService } from "ngx-cookie-service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-    constructor(private authService: AuthService, private cookieService: CookieService) {
+    constructor() {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (req.url.startsWith(`${environment.serverUrl}`)) {
-            const userToken = this.cookieService.get('userToken');
+            const userToken = sessionStorage.getItem('userToken');
             if (userToken) {
                 req = req.clone({
                     setHeaders: {
