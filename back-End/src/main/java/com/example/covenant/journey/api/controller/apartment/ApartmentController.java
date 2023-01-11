@@ -11,6 +11,7 @@ import com.example.covenant.journey.model.photo.Image;
 import com.example.covenant.journey.model.photo.ImageType;
 import com.example.covenant.journey.services.apartment.ApartmentService;
 import com.example.covenant.journey.services.photo.ImageService;
+import org.apache.commons.lang3.reflect.FieldUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -54,6 +55,8 @@ public class ApartmentController extends AbstractController<ApartmentResponse, A
 									@RequestParam("files") Optional<MultipartFile[]> files) {
 		Apartment entity = service.getOne(apartmentId);
 		entity.setImages(saveImages(files));
+		
+		Boolean extra = true;
 
 		return convertEntityToResponse(service.update(entity));
 	}
